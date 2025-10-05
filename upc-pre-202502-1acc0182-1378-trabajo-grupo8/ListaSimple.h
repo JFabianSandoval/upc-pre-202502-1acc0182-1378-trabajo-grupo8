@@ -29,10 +29,6 @@ public:
 			cout << endl << "El nodo fue insertado al final";
 		}
 	}
-	void a()
-	{
-
-	};
 	void InsertarAlInicio(L valor)
 	{
 		Nodo<L>* nuevoNodo = new Nodo<L>(valor);

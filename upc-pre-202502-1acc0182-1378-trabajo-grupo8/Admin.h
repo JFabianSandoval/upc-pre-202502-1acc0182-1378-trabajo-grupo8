@@ -6,35 +6,46 @@ class Admin : public Persona<A>
 {
 private:
 	bool esAdmin;
+	int amigos;
 public:
 #if 0
+	//ADMIN SEGUN USUARIO
+	void banearUsuario() {
+
+	}
+	void suspenderUsuario() {
+
+	}
+	void restaurarUsuario() {
+
+	}
 	//ADMIN SEGUN ELIMINAR
-	eliminarUsuario()
+	void eliminarComentario()
 	{
 
 	};
-	eliminarComentario()
-	{
-
-	};
-	eliminarPost()
+	void eliminarPost()
 	{
 
 	};
 	//ADMIN SEGUN REPORTES
-	verReportes()
+	void revisarReportes()
 	{
 
 	};
-	eliminarReportes()
-	{
+	void resolverReportes() {
 
 	};
-	void a()
-	{
+	//ADMIN SEGUN CONTENIDO
+	void gestionarContenido() {
 
 	};
+	void gestionarPublicidad() {
 
+	};
+	void validadContenido() {
+
+	};
 #endif
 
 };

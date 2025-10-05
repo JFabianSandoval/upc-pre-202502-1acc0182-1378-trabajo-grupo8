@@ -19,7 +19,3 @@ public:
 	void SetSiguiente(Nodo<N>* nodo) { siguiente = nodo; }
 
 };
-void a()
-{
-
-};

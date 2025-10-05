@@ -115,15 +115,26 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="Compartir.h" />
+    <ClInclude Include="Configuracion.h" />
     <ClInclude Include="Feed.h" />
     <ClInclude Include="Fotos.h" />
+    <ClInclude Include="Guardar.h" />
+    <ClInclude Include="Interacciones.h" />
     <ClInclude Include="Librerias.h" />
+    <ClInclude Include="ListaEnlazada.h" />
     <ClInclude Include="ListaSimple.h" />
+    <ClInclude Include="Mensaje.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
+    <ClInclude Include="Notificaciones.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="Pila.h" />
+    <ClInclude Include="Pilas.h" />
     <ClInclude Include="Prueba.h" />
     <ClInclude Include="Publicacion.h" />
+    <ClInclude Include="Reaccion.h" />
+    <ClInclude Include="Seguidores.h" />
     <ClInclude Include="Story.h" />
     <ClInclude Include="Usuario.h" />
     <ClInclude Include="Videos.h" />

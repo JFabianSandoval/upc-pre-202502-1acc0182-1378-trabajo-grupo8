@@ -2,6 +2,8 @@
 #include <iostream>
 #include <stdexcept>
 using namespace std;
+//Pilas
+
 template <class P>
 class NodoPila
 {

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Persona.h"
 
 /*El usuario es publicador y tambien viewer*/
@@ -8,12 +8,23 @@ class Usuario : public Persona<U>
 private:
 	bool esAdmin;
 	int amigos;
+	string nombre;
+	string email;
+	bool estado; // si es 1 esta activo si es 0 inactivo
+	U contraseña;
+
 public:
 #if 0
 	//USUARIO SEGUN PUBLICACIONES
 	void crearPost()
 	{
-		
+
+	};
+	void editarPost(){
+
+	};
+	void compartirPost() {
+
 	};
 	void publicarPost()
 	{
@@ -28,16 +39,19 @@ public:
 	void enviarSoli()
 	{
 	};
+	void reportarUsuario() {
+
+	}
 	void eliminarSoli()
 	{
 	};
 	void aceptarAmigo()
 	{
 	};
-	eliminarAmigo()
+	void eliminarAmigo()
 	{
 	};
-	bloquearAmigo()
+	void bloquearAmigo()
 	{
 	};
 	// VIEWERS SEGUN PUBLICACIONES
@@ -48,11 +62,6 @@ public:
 	eliminarComentario()
 	{
 
-	};
-	responderComentario()
-	{
-
-	};
 #endif
 
-};
+	};

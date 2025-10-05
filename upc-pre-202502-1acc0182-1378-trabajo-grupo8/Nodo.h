@@ -5,7 +5,7 @@ template <class N>
 class Nodo
 {
 private:
-    T dato;
+    N dato;
     Nodo<N>* siguiente;
 
 public:
@@ -15,12 +15,10 @@ public:
     Nodo(N&& valor) : dato(move(valor)), siguiente(nullptr) {}
 
     // Acceso al dato
-    T& GetDato() { return dato; }
-    const T& GetDato() const { return dato; }
-    void SetDato(const T& valor) { dato = valor; }
-    void SetDato(T&& valor) { dato = move(valor); }
+    void SetDato(N& valor) { dato = valor; }
+    void SetDato(N&& valor) { dato = move(valor); }
 
     // Enlace siguiente
-    NodoSimple<T>* GetSiguiente() const { return siguiente; }
-    void SetSiguiente(NodoSimple<T>* nodo) { siguiente = nodo; }
+    Nodo<N>* GetSiguiente() const { return siguiente; }
+    void SetSiguiente(Nodo<N>* nodo) { siguiente = nodo; }
 };

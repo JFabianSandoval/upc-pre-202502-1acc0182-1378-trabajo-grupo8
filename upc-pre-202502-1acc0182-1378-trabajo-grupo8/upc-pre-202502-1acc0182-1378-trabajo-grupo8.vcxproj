@@ -115,13 +115,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="Feed.h" />
+    <ClInclude Include="Fotos.h" />
     <ClInclude Include="Librerias.h" />
     <ClInclude Include="ListaSimple.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Persona.h" />
     <ClInclude Include="Prueba.h" />
+    <ClInclude Include="Publicacion.h" />
+    <ClInclude Include="Story.h" />
     <ClInclude Include="Usuario.h" />
+    <ClInclude Include="Videos.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

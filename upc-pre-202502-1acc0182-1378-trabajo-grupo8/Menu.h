@@ -4,6 +4,7 @@
 #include<map>
 
 #include"Usuario.h"
+#include"Admin.h"
 
 using namespace std;
 using namespace System;
@@ -31,8 +32,8 @@ void mostrarMenuUsuario(Usuario<U>& usuario) {
         {4, [&usuario]() { usuario.eliminarAmigo(); }},
         {5, [&usuario]() { usuario.crearPost(); }},
         {6, [&usuario]() { usuario.editarPost(); }},
-        {7, [&usuario]() { usuario.compartirPost; }},
-        {8, [&usuario]() { usuario.eliminarPost; }},
+        {7, [&usuario]() { usuario.compartirPost(); }},
+        {8, [&usuario]() { usuario.eliminarPost(); }},
         {9, [&usuario]() { usuario.cambiarContraseña(); }},
         {10, [&usuario]() { usuario.bloquearAmigo(); }},
         {11, [&usuario]() { usuario.cerrarSesion(); }}
@@ -51,7 +52,8 @@ void mostrarMenuUsuario(Usuario<U>& usuario) {
     } while (opcion != 11);
 }
 
-void mostrarMenuAdministrador() {
+template <class Ad>
+void mostrarMenuAdministrador(Admin<Ad>& admin) {
     cout << "\n--- Menu Administrador ---\n";
     cout << "1. Gestionar usuarios\n";
     cout << "2. Banear usuario\n";
@@ -65,15 +67,15 @@ void mostrarMenuAdministrador() {
     cout << "10. Salir de administrador\n";
 
     map<int, function<void()>> menuAdmin = {
-        {1, []() { cout << "Mostrando reportes del sistema...\n"; }},
-        {2, []() { cout << "Gestionando usuarios...\n"; }},
-        {3, []() { cout << "Baneando usuario...\n"; }},
-        {4, []() { cout << "Restaurando usuario...\n"; }},
-        {5, []() { cout << "Eliminando post...\n"; }},
-        {6, []() { cout << "Mostrando reportes...\n"; }},
-        {7, []() { cout << "Resolviendo reportes...\n"; }},
-        {8, []() { cout << "Gestionando contenido...\n"; }},
-        {9, []() { cout << "Gestionando publicidad...\n"; }},
+        {1, [&admin]() { admin.gestionarUsuarios(); }},
+        {2, [&admin]() { admin.banearUsuario(); }},
+        {3, [&admin]() { admin.restaurarUsuario(); }},
+        {4, [&admin]() { admin.eliminarPost(); }},
+        {5, [&admin]() { admin.revisarReportes(); }},
+        {6, [&admin]() { admin.resolverReportes(); }},
+        {7, [&admin]() { admin.gestionarContenido(); }},
+        {8, [&admin]() { admin.gestionarPublicidad(); }},
+        {9, [&admin]() { admin.validadContenido(); }},
         {10, []() { cout << "Saliendo del menu de administrador...\n"; }}
     };
 

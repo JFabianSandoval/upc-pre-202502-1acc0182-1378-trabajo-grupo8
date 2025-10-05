@@ -2,6 +2,7 @@
 #include "Librerias.h"
 #include "Menu.h"
 #include "Usuario.h"
+#include "Admin.h"
 using namespace std;
 
 int main() {
@@ -10,11 +11,11 @@ int main() {
     cin >> tipo;
 
     Usuario<string> usuario1;
-
+    Admin<string> admin1;
     if (tipo == 1)
         mostrarMenuUsuario(usuario1); 
     else if (tipo == 2)
-        mostrarMenuAdministrador();
+        mostrarMenuAdministrador(admin1);
     else
         cout << "Tipo de usuario invalido.\n";
 

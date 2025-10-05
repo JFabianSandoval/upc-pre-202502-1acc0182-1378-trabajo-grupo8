@@ -10,15 +10,18 @@ private:
 public:
 #if 1
 	//ADMIN SEGUN USUARIO
+	void gestionarUsuarios() {
+
+	};
 	void banearUsuario() {
 
-	}
+	};
 	void suspenderUsuario() {
 
-	}
+	};
 	void restaurarUsuario() {
 
-	}
+	};
 	//ADMIN SEGUN ELIMINAR
 	void eliminarComentario()
 	{

@@ -56,7 +56,7 @@ public:
 	void aceptarAmigo()
 	{
 	};
-	void agregarAmigo() {
+	void agregarAmigo(){
 
 	};
 	void eliminarAmigo()
@@ -81,7 +81,7 @@ public:
 	//SEGUIDORES
 	void verSeguidores() {
 
-	};
+	}
 #endif
 
 };

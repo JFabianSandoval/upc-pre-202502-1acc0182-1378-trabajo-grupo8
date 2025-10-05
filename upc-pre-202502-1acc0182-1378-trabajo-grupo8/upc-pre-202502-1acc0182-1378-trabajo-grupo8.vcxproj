@@ -116,6 +116,7 @@
   <ItemGroup>
     <ClInclude Include="Admin.h" />
     <ClInclude Include="Librerias.h" />
+    <ClInclude Include="ListaEnlazada.h" />
     <ClInclude Include="ListaSimple.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />

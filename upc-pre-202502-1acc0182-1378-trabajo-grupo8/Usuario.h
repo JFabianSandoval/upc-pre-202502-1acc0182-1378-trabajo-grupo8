@@ -56,6 +56,9 @@ public:
 	void aceptarAmigo()
 	{
 	};
+	void agregarAmigo() {
+
+	};
 	void eliminarAmigo()
 	{
 	};
@@ -63,22 +66,22 @@ public:
 	{
 	};
 	// VIEWERS SEGUN PUBLICACIONES
-	comentar()
+	void comentar()
 	{
 
 	};
-	eliminarComentario()
+	void eliminarComentario()
 	{
 
 	};
-	responderComentario()
+	void responderComentario()
 	{
 
 	};
 	//SEGUIDORES
 	void verSeguidores() {
 
-	}
+	};
 #endif
 
 };

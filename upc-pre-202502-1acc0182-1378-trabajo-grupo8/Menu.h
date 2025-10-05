@@ -3,10 +3,13 @@
 #include<functional>
 #include<map>
 
+#include"Usuario.h"
+
 using namespace std;
 using namespace System;
 
-void mostrarMenuUsuario() {
+template <class U>
+void mostrarMenuUsuario(Usuario<U>& usuario) {
 
     cout << "\n--- Menu Usuario ---\n";
     cout << "1. Ver perfil\n";
@@ -23,16 +26,16 @@ void mostrarMenuUsuario() {
 
     map<int, function<void()>> menuUsuario = {
         {1, []() { cout << "Mostrando perfil del usuario...\n"; }},
-        {2, []() { cout << "Mostrar listado de amigos...\n"; }},
-        {3, []() { cout << "Agregar amigos...\n"; }},
-        {4, []() { cout << "Eliminar amigos...\n"; }},
-        {5, []() { cout << "Creando nuevo post...\n"; }},
-        {6, []() { cout << "Editando post...\n"; }},
-        {7, []() { cout << "Compartiendo post...\n"; }},
-        {8, []() { cout << "Eliminando post...\n"; }},
-        {9, []() { cout << "Cambiando contrasenia...\n"; }},
-        {10, []() { cout << "Bloqueando usuario...\n"; }},
-        {11, []() { cout << "Cerrando sesion del usuario...\n"; }}
+        {2, [&usuario]() { usuario.verSeguidores(); }},
+        {3, [&usuario]() { usuario.agregarAmigo(); }},
+        {4, [&usuario]() { usuario.eliminarAmigo(); }},
+        {5, [&usuario]() { usuario.crearPost(); }},
+        {6, [&usuario]() { usuario.editarPost(); }},
+        {7, [&usuario]() { usuario.compartirPost; }},
+        {8, [&usuario]() { usuario.eliminarPost; }},
+        {9, [&usuario]() { usuario.cambiarContraseña(); }},
+        {10, [&usuario]() { usuario.bloquearAmigo(); }},
+        {11, [&usuario]() { usuario.cerrarSesion(); }}
     };
 
     int opcion;

@@ -8,7 +8,7 @@ private:
 	bool esAdmin;
 	int amigos;
 public:
-#if 0
+#if 1
 	//ADMIN SEGUN USUARIO
 	void banearUsuario() {
 

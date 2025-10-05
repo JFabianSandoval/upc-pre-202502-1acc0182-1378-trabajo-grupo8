@@ -14,6 +14,7 @@ private:
 	P contraseña;
 
 public:
+	Persona()=default;
 	Persona<P>(short id, P nom, P ape1, P ape2, P contra, bool rol, int amigos,string email) :id(id), nombres(nom), apellidopaterno(ape1), apellidomaterno(ape2), contraseña(contra), email(email) {};
 	~Persona<P>() {};
 };

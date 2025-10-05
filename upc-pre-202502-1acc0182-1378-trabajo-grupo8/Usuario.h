@@ -10,7 +10,7 @@ private:
 	bool estado; // si es 1 esta activo si es 0 inactivo
 
 public:
-#if 0
+#if 1
 	//USUARIO SEGUN PUBLICACIONES
 	void registrarse() {
 
@@ -40,6 +40,8 @@ public:
 	void reportar()
 	{
 	};
+	void cambiarContraseña() {
+	};
 	// USUARIO SEGUN SOLICITUDES DE AMISTAD
 	void enviarSoli()
 	{
@@ -50,7 +52,7 @@ public:
 	void eliminarSoli()
 	{
 	};
-	void aceptarAmigo()
+	void aceptarAmigo()// creo que este void es lo mismo que agregar amigo
 	{
 	};
 	void agregarAmigo(){

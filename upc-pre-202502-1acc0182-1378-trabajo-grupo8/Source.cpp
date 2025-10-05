@@ -4,8 +4,7 @@ using namespace std;
 
 int main()
 {
-	cout << "adgvbdfbn"<<endl;
-	cout << "fabian modifico el cami branch";
+	cout << "hello world"<<endl;
 	system("pause");
 	return 0;
 }

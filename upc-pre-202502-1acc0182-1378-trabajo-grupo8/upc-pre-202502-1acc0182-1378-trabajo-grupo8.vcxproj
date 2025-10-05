@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="Archivo.h" />
     <ClInclude Include="Compartir.h" />
     <ClInclude Include="Configuracion.h" />
     <ClInclude Include="Feed.h" />
@@ -130,7 +131,6 @@
     <ClInclude Include="Notificaciones.h" />
     <ClInclude Include="Persona.h" />
     <ClInclude Include="Pila.h" />
-    <ClInclude Include="Pilas.h" />
     <ClInclude Include="Prueba.h" />
     <ClInclude Include="Publicacion.h" />
     <ClInclude Include="Reaccion.h" />

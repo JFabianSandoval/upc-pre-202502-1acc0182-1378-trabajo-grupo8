@@ -7,10 +7,7 @@ class Usuario : public Persona<U>
 {
 private:
 	int amigos;
-	string nombre;
-	string email;
 	bool estado; // si es 1 esta activo si es 0 inactivo
-	U contraseña;
 
 public:
 #if 0

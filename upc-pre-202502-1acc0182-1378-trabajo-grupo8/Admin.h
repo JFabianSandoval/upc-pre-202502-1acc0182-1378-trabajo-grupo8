@@ -30,7 +30,10 @@ public:
 	{
 
 	};
+	void a()
+	{
 
+	};
 
 #endif
 

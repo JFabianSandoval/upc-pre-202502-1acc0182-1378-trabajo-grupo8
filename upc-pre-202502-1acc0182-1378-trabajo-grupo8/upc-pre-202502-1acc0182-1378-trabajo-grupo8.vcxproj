@@ -120,6 +120,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="Pila.h" />
     <ClInclude Include="Prueba.h" />
     <ClInclude Include="Usuario.h" />
   </ItemGroup>

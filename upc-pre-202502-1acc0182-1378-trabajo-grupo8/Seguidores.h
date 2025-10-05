@@ -3,8 +3,7 @@
 
 class Seguidores {
 private:
-
-
+    bool estado;
 public:
 #if 0
     // Métodos según el diagrama UML (vacíos)

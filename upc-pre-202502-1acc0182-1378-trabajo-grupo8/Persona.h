@@ -10,9 +10,10 @@ private:
 	P nombres;
 	P apellidopaterno;
 	P apellidomaterno;
+	string email;
 	P contraseña;
 
 public:
-	Persona<P>(short id, P nom, P ape1, P ape2, P contra, bool rol, int amigos) :id(id), nombres(nom), apellidopaterno(ape1), apellidomaterno(ape2), contraseña(contra) {};
+	Persona<P>(short id, P nom, P ape1, P ape2, P contra, bool rol, int amigos,string email) :id(id), nombres(nom), apellidopaterno(ape1), apellidomaterno(ape2), contraseña(contra), email(email) {};
 	~Persona<P>() {};
 };

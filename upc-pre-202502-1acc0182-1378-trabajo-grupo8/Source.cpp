@@ -3,21 +3,44 @@
 #include "Menu.h"
 #include "Usuario.h"
 #include "Admin.h"
+#include "Windows.h"
 using namespace std;
-
+using namespace System;
 int main() {
-    int tipo;
-    cout << "Ingrese tipo de usuario (1 = Usuario, 2 = Admin): ";
-    cin >> tipo;
+    short tipo,op;
+    while (true)
+    {
 
+    cout << "Ingrese tipo de usuario (1 = Usuario, 2 = Admin): ";
+    cout << "Credenciales de Usuario: pepito@upc.edu.pe | Contraseña: upc2020";
+
+
+    cin >> tipo;
+    string email, contrasenia;
     Usuario<string> usuario1;
     Admin<string> admin1;
-    if (tipo == 1)
-        mostrarMenuUsuario(usuario1); 
-    else if (tipo == 2)
-        mostrarMenuAdministrador(admin1);
-    else
-        cout << "Tipo de usuario invalido.\n";
 
+    ListaSimple<Usuario<string>> listauser;
+    ListaSimple<Seguidores<string>> listafollowers;
+
+    if (tipo == 1)
+    {
+        iniciarsesion(email,contrasenia);
+        mostrarMenuUsuario(usuario1);
+
+    }
+    else if (tipo == 2)
+    {
+        mostrarMenuAdministrador(admin1);
+    }
+    else
+    {
+        cout << "Tipo de usuario invalido.\n";
+        system("pause");
+        system("cls");
+    }
+
+
+    }
     return 0;
 }

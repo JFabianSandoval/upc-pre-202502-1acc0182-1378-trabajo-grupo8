@@ -110,7 +110,9 @@ public:
 	{
 		cout << "\nHas reportado una publicación o usuario.\n";
 	};
-
+	void cambiarContraseña() {
+		cout<<"Vas a cambiar contraseni."
+	};
 	// USUARIO SEGUN SOLICITUDES DE AMISTAD
 	void enviarSoli()
 	{

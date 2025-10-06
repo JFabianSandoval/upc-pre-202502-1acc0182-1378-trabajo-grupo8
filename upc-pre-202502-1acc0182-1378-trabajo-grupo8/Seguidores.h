@@ -3,8 +3,8 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-class Seguidores
+template <class S>
+class Seguidores : public Persona<S>
 {
 private:
 	bool estado; // 1 = solicitud aceptada, 0 = pendiente o rechazada

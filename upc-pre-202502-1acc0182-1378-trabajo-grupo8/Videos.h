@@ -5,7 +5,7 @@
 using namespace std;
 
 template <class ST>
-class Videos
+class Videos : public Publicacion<ST>
 {
 private:
 	ST tipode;

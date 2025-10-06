@@ -5,7 +5,7 @@
 using namespace std;
 
 template <typename TTipo>
-class Compartir : public Interacciones<int, TTipo>
+class Compartir : public Interacciones<TTipo>
 {
 private:
     TTipo tipoDe;

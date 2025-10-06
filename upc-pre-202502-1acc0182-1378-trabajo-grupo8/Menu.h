@@ -9,6 +9,13 @@
 using namespace std;
 using namespace System;
 
+void iniciarsesion(string &email, string &contrasenia)
+{
+    cout << "Nombre: " << email << endl;
+    cout << "Contraseña: " << contrasenia;
+}
+
+
 template <class U>
 void mostrarMenuUsuario(Usuario<U>& usuario) {
 
@@ -34,7 +41,7 @@ void mostrarMenuUsuario(Usuario<U>& usuario) {
         {6, [&usuario]() { usuario.editarPost(); }},
         {7, [&usuario]() { usuario.compartirPost(); }},
         {8, [&usuario]() { usuario.eliminarPost(); }},
-        {9, [&usuario]() { usuario.cambiarContraseña(); }},
+       // {9, [&usuario]() { usuario.cambiarContraseña(); }}, en conflicto
         {10, [&usuario]() { usuario.bloquearAmigo(); }},
         {11, [&usuario]() { usuario.cerrarSesion(); }}
     };
@@ -67,7 +74,7 @@ void mostrarMenuAdministrador(Admin<Ad>& admin) {
     cout << "10. Salir de administrador\n";
 
     map<int, function<void()>> menuAdmin = {
-        {1, [&admin]() { admin.gestionarUsuarios(); }},
+       // {1, [&admin]() { admin.gestionarUsuarios(); }}, en conflicto
         {2, [&admin]() { admin.banearUsuario(); }},
         {3, [&admin]() { admin.restaurarUsuario(); }},
         {4, [&admin]() { admin.eliminarPost(); }},

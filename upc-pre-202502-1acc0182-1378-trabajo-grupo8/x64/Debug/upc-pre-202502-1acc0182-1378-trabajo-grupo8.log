@@ -1,3 +1,42 @@
 ﻿  Source.cpp
-  Source.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-  upc-pre-202502-1acc0182-1378-trabajo-grupo8.vcxproj -> C:\Users\USUARIO\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\x64\Debug\upc-pre-202502-1acc0182-1378-trabajo-grupo8.exe
+C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Archivo.h(10,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  (compilando archivo de origen "Source.cpp")
+  
+C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Pila.h(73,11): warning C4566: el carácter representado por el nombre de carácter universal '\u2192' no se puede representar en la página de códigos actual (1252)
+  (compilando archivo de origen "Source.cpp")
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\servprov.h(99,64): error C3699: '*': no se puede utilizar este direccionamiento indirecto en el tipo 'IServiceProvider'
+  (compilando archivo de origen "Source.cpp")
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\servprov.h(99,64):
+      el compilador reemplazará '*' por '^' para continuar con el análisis
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\servprov.h(106,9): error C2371: 'IServiceProvider': nueva definición; tipos básicos distintos
+  (compilando archivo de origen "Source.cpp")
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\servprov.h(52,36):
+      vea la declaración de 'IServiceProvider'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\servprov.h(123,43): error C3699: '*': no se puede utilizar este direccionamiento indirecto en el tipo 'IServiceProvider'
+  (compilando archivo de origen "Source.cpp")
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\servprov.h(123,43):
+      el compilador reemplazará '*' por '^' para continuar con el análisis
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\servprov.h(251,24): error C3699: '*': no se puede utilizar este direccionamiento indirecto en el tipo 'IServiceProvider'
+  (compilando archivo de origen "Source.cpp")
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\servprov.h(251,24):
+      el compilador reemplazará '*' por '^' para continuar con el análisis
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\servprov.h(261,34): error C3699: '*': no se puede utilizar este direccionamiento indirecto en el tipo 'IServiceProvider'
+  (compilando archivo de origen "Source.cpp")
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\servprov.h(261,34):
+      el compilador reemplazará '*' por '^' para continuar con el análisis
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\urlmon.h(7156,67): error C3699: '*': no se puede utilizar este direccionamiento indirecto en el tipo 'IServiceProvider'
+  (compilando archivo de origen "Source.cpp")
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\urlmon.h(7156,67):
+      el compilador reemplazará '*' por '^' para continuar con el análisis
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\urlmon.h(7158,63): error C3699: '*': no se puede utilizar este direccionamiento indirecto en el tipo 'IServiceProvider'
+  (compilando archivo de origen "Source.cpp")
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\urlmon.h(7158,63):
+      el compilador reemplazará '*' por '^' para continuar con el análisis
+  

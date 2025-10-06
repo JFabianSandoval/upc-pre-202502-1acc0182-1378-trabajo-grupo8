@@ -21,7 +21,12 @@ public:
 		seguidores = numSeguidores;
 		publicaciones = numPublicaciones;
 	}
-	Usuario();
+	Usuario()
+	{
+		amigos = 0;
+		estado = false;
+	}
+
 	//USUARIO SEGUN PUBLICACIONES
 	void registrarse()
 	{
@@ -198,7 +203,7 @@ public:
 		cout << "\nMostrando lista de seguidores (simulado)...\n";
 	};
 	// --- Métodos Getters ---
-	string obtenerCorreo() 
+	string obtenercorreo()
 	{
 		return correo;
 	}

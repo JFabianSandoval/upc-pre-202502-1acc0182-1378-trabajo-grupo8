@@ -60,7 +60,7 @@ int main() {
 
     while (actual != nullptr) {
         Usuario<string> u = actual->GetDato();
-        if (u.obtenerCorreo() == correo && u.obtenerContrasenia() == contrasenia) {
+        if (u.obtenercorreo() == correo && u.obtenerContrasenia() == contrasenia) {
             usuarioActual = u;
             valido = true;
             break;

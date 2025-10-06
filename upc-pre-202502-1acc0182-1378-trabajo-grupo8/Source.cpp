@@ -54,7 +54,7 @@ int main() {
     cout << "Contrasena: ";
     cin >> contrasenia;
 
-    bool valido = false;
+    bool valido = true;
     Nodo<Usuario<string>>* actual = listaUsuarios.GetCabeza();
     Usuario<string> usuarioActual;
 

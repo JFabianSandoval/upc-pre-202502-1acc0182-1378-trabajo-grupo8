@@ -9,9 +9,9 @@
 using namespace std;
 using namespace System;
 
-void iniciarsesion(string &email, string &contrasenia)
+void iniciarsesion(string & correo, string &contrasenia)
 {
-    cout << "Nombre: " << email << endl;
+    cout << "Nombre: " << correo << endl;
     cout << "Contraseña: " << contrasenia;
 }
 

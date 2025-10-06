@@ -1,24 +1,3 @@
 ﻿  Source.cpp
-C:\Users\sergi\OneDrive\Documentos\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(203,10): error C2065: 'correo': identificador no declarado
-  (compilando archivo de origen "Source.cpp")
-      C:\Users\sergi\OneDrive\Documentos\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(203,10):
-      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
-          C:\Users\sergi\OneDrive\Documentos\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Source.cpp(59,21):
-          Vea la referencia a la creación de una instancia de clase plantilla "Usuario<T>" que se está compilando
-          with
-          [
-              T=std::string
-          ]
-          C:\Users\sergi\OneDrive\Documentos\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(201,9):
-          al compilar la función del miembro clase plantilla "std::string Usuario<T>::obtenerCorreo(void)"
-          with
-          [
-              T=std::string
-          ]
-              C:\Users\sergi\OneDrive\Documentos\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Source.cpp(63,9):
-              vea la primera referencia a “Usuario<T>::obtenerCorreo” en “main”
-          with
-          [
-              T=std::string
-          ]
-  
+  Source.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
+  upc-pre-202502-1acc0182-1378-trabajo-grupo8.vcxproj -> C:\Users\USUARIO\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\x64\Debug\upc-pre-202502-1acc0182-1378-trabajo-grupo8.exe

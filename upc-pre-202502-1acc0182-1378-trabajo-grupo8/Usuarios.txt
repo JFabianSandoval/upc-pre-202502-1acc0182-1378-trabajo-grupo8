@@ -1,0 +1,3 @@
+1001|Camila|cami@prueba.com|cami123|
+1002|Sergio|sergio@prueba.com|sergio123|
+1003|Fabian|fabian@prueba.com|fabian123|

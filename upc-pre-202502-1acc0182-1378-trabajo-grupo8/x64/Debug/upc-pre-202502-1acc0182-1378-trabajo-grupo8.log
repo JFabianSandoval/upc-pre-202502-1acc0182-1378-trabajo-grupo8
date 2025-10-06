@@ -1,10 +1,40 @@
 ﻿  Source.cpp
-C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Archivo.h(10,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10): error C2248: 'Persona<A>::contrasenia': no se puede obtener acceso al miembro private miembro declarado en la clase 'Persona<A>'
+C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10): error C2248:         with
+C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10): error C2248:         [
+C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10): error C2248:             A=std::string
+C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10): error C2248:         ]
   (compilando archivo de origen "Source.cpp")
+      C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Persona.h(14,7):
+      vea la declaración de 'Persona<A>::contrasenia'
+          with
+          [
+              A=std::string
+          ]
+      C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Persona.h(6,7):
+      vea la declaración de 'Persona<A>'
+          with
+          [
+              A=std::string
+          ]
+      C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Source.cpp(59,21):
+          Vea la referencia a la creación de una instancia de clase plantilla "Usuario<T>" que se está compilando
+          with
+          [
+              T=std::string
+          ]
+          C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(205,9):
+          al compilar la función del miembro clase plantilla "std::string Usuario<T>::obtenerContrasenia(void)"
+          with
+          [
+              T=std::string
+          ]
+              C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Source.cpp(63,9):
+              vea la primera referencia a “Usuario<T>::obtenerContrasenia” en “main”
+          with
+          [
+              T=std::string
+          ]
   
-C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Pila.h(73,11): warning C4566: el carácter representado por el nombre de carácter universal '\u2192' no se puede representar en la página de códigos actual (1252)
-  (compilando archivo de origen "Source.cpp")
-  
-C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Source.cpp(8,16): warning C4101: 'op': variable local sin referencia
-  Source.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-  upc-pre-202502-1acc0182-1378-trabajo-grupo8.vcxproj -> C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\x64\Debug\upc-pre-202502-1acc0182-1378-trabajo-grupo8.exe

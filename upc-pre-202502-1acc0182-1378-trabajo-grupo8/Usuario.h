@@ -12,7 +12,16 @@ private:
 	bool estado; // si es 1 esta activo si es 0 inactivo
 
 public:
-
+	Usuario(int id, string nombres, string correo, string contrasenia,
+		bool estadoUsuario, string tipo, int numSeguidores, int numPublicaciones)
+		: Persona<U>(id, nombres, correo, contrasenia) 
+	{
+		estado = estadoUsuario;
+		tipoUsuario = tipo;
+		seguidores = numSeguidores;
+		publicaciones = numPublicaciones;
+	}
+	Usuario();
 	//USUARIO SEGUN PUBLICACIONES
 	void registrarse()
 	{
@@ -188,4 +197,17 @@ public:
 	{
 		cout << "\nMostrando lista de seguidores (simulado)...\n";
 	};
+	// --- Métodos Getters ---
+	string obtenerCorreo() 
+	{
+		return correo;
+	}
+	string obtenerContrasenia()
+	{
+		return contrasenia;
+	}
+
+
+
+
 };

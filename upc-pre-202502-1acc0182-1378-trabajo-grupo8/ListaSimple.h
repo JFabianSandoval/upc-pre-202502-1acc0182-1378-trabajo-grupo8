@@ -10,6 +10,10 @@ private:
 public:
 	ListaSimple() { cabeza = nullptr; }
 	~ListaSimple() {}
+	Nodo<L>* GetCabeza()
+	{
+		return cabeza;
+	}
 	void InsertarAlFinal(L valor)
 	{
 		Nodo<L>* nuevoNodo = new Nodo<L>(valor);

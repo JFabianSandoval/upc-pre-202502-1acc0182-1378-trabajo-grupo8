@@ -133,6 +133,7 @@
     <ClInclude Include="Pila.h" />
     <ClInclude Include="Prueba.h" />
     <ClInclude Include="Publicacion.h" />
+    <ClInclude Include="QuickSort.h" />
     <ClInclude Include="Reaccion.h" />
     <ClInclude Include="Seguidores.h" />
     <ClInclude Include="Story.h" />

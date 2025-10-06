@@ -5,7 +5,7 @@ using namespace std;
 template <class P>
 class Persona
 {
-private:
+protected:
     short id;
     P nombres;
     P paterno;

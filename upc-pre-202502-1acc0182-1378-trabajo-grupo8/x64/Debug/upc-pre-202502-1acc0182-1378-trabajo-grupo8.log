@@ -1,38 +1,22 @@
 ﻿  Source.cpp
-C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10): error C2248: 'Persona<A>::contrasenia': no se puede obtener acceso al miembro private miembro declarado en la clase 'Persona<A>'
-C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10): error C2248:         with
-C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10): error C2248:         [
-C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10): error C2248:             A=std::string
-C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10): error C2248:         ]
+C:\Users\sergi\OneDrive\Documentos\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(203,10): error C2065: 'correo': identificador no declarado
   (compilando archivo de origen "Source.cpp")
-      C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Persona.h(14,7):
-      vea la declaración de 'Persona<A>::contrasenia'
-          with
-          [
-              A=std::string
-          ]
-      C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Persona.h(6,7):
-      vea la declaración de 'Persona<A>'
-          with
-          [
-              A=std::string
-          ]
-      C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(207,10):
+      C:\Users\sergi\OneDrive\Documentos\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(203,10):
       el contexto de creación de instancias de la plantilla (el más antiguo primero) es
-          C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Source.cpp(59,21):
+          C:\Users\sergi\OneDrive\Documentos\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Source.cpp(59,21):
           Vea la referencia a la creación de una instancia de clase plantilla "Usuario<T>" que se está compilando
           with
           [
               T=std::string
           ]
-          C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(205,9):
-          al compilar la función del miembro clase plantilla "std::string Usuario<T>::obtenerContrasenia(void)"
+          C:\Users\sergi\OneDrive\Documentos\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Usuario.h(201,9):
+          al compilar la función del miembro clase plantilla "std::string Usuario<T>::obtenerCorreo(void)"
           with
           [
               T=std::string
           ]
-              C:\Users\FABIAN\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Source.cpp(63,9):
-              vea la primera referencia a “Usuario<T>::obtenerContrasenia” en “main”
+              C:\Users\sergi\OneDrive\Documentos\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\Source.cpp(63,9):
+              vea la primera referencia a “Usuario<T>::obtenerCorreo” en “main”
           with
           [
               T=std::string

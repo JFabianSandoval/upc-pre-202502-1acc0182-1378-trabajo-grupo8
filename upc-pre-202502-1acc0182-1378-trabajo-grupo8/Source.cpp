@@ -1,10 +1,23 @@
 #include <iostream>
 #include "Librerias.h"
+#include "Menu.h"
+#include "Usuario.h"
+#include "Admin.h"
 using namespace std;
 
-int main()
-{
-	cout << "hello world"<<endl;
-	system("pause");
-	return 0;
+int main() {
+    int tipo;
+    cout << "Ingrese tipo de usuario (1 = Usuario, 2 = Admin): ";
+    cin >> tipo;
+
+    Usuario<string> usuario1;
+    Admin<string> admin1;
+    if (tipo == 1)
+        mostrarMenuUsuario(usuario1); 
+    else if (tipo == 2)
+        mostrarMenuAdministrador(admin1);
+    else
+        cout << "Tipo de usuario invalido.\n";
+
+    return 0;
 }

@@ -54,7 +54,7 @@ public:
             Usuario<T> u;
             u.establecerId(stoi(sid));
             u.establecerNombres(nombre);
-            u.establecerCorreo(correo);
+            u.establecercorreo(correo);
             u.establecerContrasenia(pass);
 
             listaUsuarios.InsertarAlFinal(u);
@@ -75,7 +75,7 @@ public:
             Usuario<T> u = actual->GetDato();
             out << u.obtenerId() << "|"
                 << u.obtenerNombres() << "|"
-                << u.obtenerCorreo() << "|"
+                << u.obtenercorreo() << "|"
                 << u.obtenerContrasenia() << "|\n";
             actual = actual->GetSiguiente();
         }

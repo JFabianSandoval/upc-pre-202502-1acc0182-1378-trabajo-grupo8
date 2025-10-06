@@ -21,7 +21,12 @@ public:
 		seguidores = numSeguidores;
 		publicaciones = numPublicaciones;
 	}
-	Usuario();
+	Usuario()
+	{
+		amigos = 0;
+		estado = 0;
+	}
+
 	//USUARIO SEGUN PUBLICACIONES
 	void registrarse()
 	{
@@ -58,13 +63,13 @@ public:
 
 		cout << "Correo: ";
 		cin >> correoIngresado;
-		cout << "Contraseña: ";
+		cout << "Contrasenia: ";
 		cin >> contraIngresada;
 
 		if (this->validarInicioSesion(correoIngresado, contraIngresada))
 		{
 			estado = 1;
-			cout << "Inicio de sesión exitoso.\n";
+			cout << "Inicio de sesion exitoso.\n";
 		}
 		else
 		{
@@ -117,10 +122,10 @@ public:
 
 	void reportar()
 	{
-		cout << "\nHas reportado una publicación o usuario.\n";
+		cout << "\nHas reportado una publicacion o usuario.\n";
 	};
 	void cambiarContraseña() {
-		cout<<"Vas a cambiar contraseni."
+		cout<<"Vas a cambiar contrasenia."
 	};
 	// USUARIO SEGUN SOLICITUDES DE AMISTAD
 	void enviarSoli()
@@ -198,7 +203,7 @@ public:
 		cout << "\nMostrando lista de seguidores (simulado)...\n";
 	};
 	// --- Métodos Getters ---
-	string obtenerCorreo() 
+	string obtenercorreo()
 	{
 		return correo;
 	}

@@ -1,16 +1,13 @@
 #pragma once
 #include "Usuario.h"
-
-template <typename I>
-class Interacciones {
-private:
-    I tipoDe;
-
+#include <iostream>
+#include <string>
+using namespace std;
+class Interaccion
+{
 public:
-#if 0
-    // Métodos según el diagrama UML (vacíos)
-    void comentarPublicacion() {};
-    void reacciones() {};
-    void devolverTipo() {};
-#endif
+	virtual void metodoInteraccion(ostream& os)
+	{
+		os << "Interaccion sin definir" << endl;
+	}
 };

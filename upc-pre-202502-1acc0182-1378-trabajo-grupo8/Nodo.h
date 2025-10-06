@@ -1,26 +1,38 @@
 #pragma once
-#include <utility>
+#include <iostream>
 using namespace std;
+
 template <class N>
 class Nodo
 {
 private:
-    T dato;
+    N dato;
     Nodo<N>* siguiente;
 
 public:
-    // Constructores
-    Nodo() : dato(), siguiente(nullptr) {}
-    Nodo(N& valor) : dato(valor), siguiente(nullptr) {}
-    Nodo(N&& valor) : dato(move(valor)), siguiente(nullptr) {}
-
-    // Acceso al dato
-    T& GetDato() { return dato; }
-    const T& GetDato() const { return dato; }
-    void SetDato(const T& valor) { dato = valor; }
-    void SetDato(T&& valor) { dato = move(valor); }
-
-    // Enlace siguiente
-    NodoSimple<T>* GetSiguiente() const { return siguiente; }
-    void SetSiguiente(NodoSimple<T>* nodo) { siguiente = nodo; }
+    Nodo()
+    {
+        siguiente = nullptr;
+    }
+    Nodo(N valor)
+    {
+        dato = valor;
+        siguiente = nullptr;
+    }
+    N GetDato()
+    {
+        return dato;
+    }
+    void SetDato(N valor)
+    {
+        dato = valor;
+    }
+    Nodo<N>* GetSiguiente()
+    {
+        return siguiente;
+    }
+    void SetSiguiente(Nodo<N>* nodo)
+    {
+        siguiente = nodo;
+    }
 };

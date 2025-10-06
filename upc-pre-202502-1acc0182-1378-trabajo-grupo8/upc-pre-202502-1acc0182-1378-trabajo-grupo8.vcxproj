@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="Archivo.h" />
     <ClInclude Include="Compartir.h" />
     <ClInclude Include="Configuracion.h" />
     <ClInclude Include="Feed.h" />
@@ -130,13 +131,14 @@
     <ClInclude Include="Notificaciones.h" />
     <ClInclude Include="Persona.h" />
     <ClInclude Include="Pila.h" />
-    <ClInclude Include="Pilas.h" />
     <ClInclude Include="Prueba.h" />
     <ClInclude Include="Publicacion.h" />
+    <ClInclude Include="QuickSort.h" />
     <ClInclude Include="Reaccion.h" />
     <ClInclude Include="Seguidores.h" />
     <ClInclude Include="Story.h" />
     <ClInclude Include="Usuario.h" />
+    <ClInclude Include="Videos.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

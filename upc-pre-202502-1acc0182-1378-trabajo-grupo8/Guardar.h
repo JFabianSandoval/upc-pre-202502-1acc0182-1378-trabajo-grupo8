@@ -1,14 +1,14 @@
 #pragma once
 #include "Interacciones.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
-template <typename TTipo>
-class Guardar : public Interacciones<int, TTipo> {
-private:
-    TTipo tipoDe;
-
+class Guardar : public Interaccion
+{
 public:
-#if 0
-    // Métodos según el diagrama UML (vacíos)
-    void devolverTipo() {};
-#endif
+	void metodoInteraccion(ostream& os) override
+	{
+		os << "La Interaccion es un guardar"  << endl;
+	}
 };

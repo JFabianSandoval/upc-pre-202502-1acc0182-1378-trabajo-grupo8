@@ -1,8 +1,25 @@
 #pragma once
-#include "Persona.h"
 #include "ListaSimple.h"
-//#include <unordered_set> ==== Ordena automaticamente un vector
-void a()
-{
+#include "Admin.h"
+#include "Archivo.h"
+#include "Compartir.h"
+#include "Configuracion.h"
+#include "Feed.h"
+#include "Fotos.h"
+#include "Guardar.h"
+#include "Interacciones.h"
+#include "ListaEnlazada.h"
+#include "Mensaje.h"
+#include "Menu.h"
+#include "Nodo.h"
+#include "Notificaciones.h"
+#include "Persona.h"
+#include "Pila.h"
+#include "Publicacion.h"
+#include "Reaccion.h"
+#include "Seguidores.h"
+#include "Story.h"
+#include "Usuario.h"
+#include "Videos.h"
 
-};
+//#include <unordered_set> ==== Ordena automaticamente un vector

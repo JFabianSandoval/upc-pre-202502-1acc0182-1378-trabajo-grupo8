@@ -70,7 +70,7 @@ public:
 	void mostrar()
 	{
 		NodoPila<T>* actual = cima;
-		cout << "Pila (top → base): ";
+		cout << "Pila (top -> base): ";
 		while (actual != nullptr)
 		{
 			cout << actual->getDato() << " ";

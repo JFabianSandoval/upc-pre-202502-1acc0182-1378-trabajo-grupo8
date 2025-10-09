@@ -54,13 +54,13 @@ int main() {
     cout << "Contrasena: ";
     cin >> contrasenia;
 
-    bool valido = false;
+    bool valido = true;
     Nodo<Usuario<string>>* actual = listaUsuarios.GetCabeza();
     Usuario<string> usuarioActual;
 
     while (actual != nullptr) {
         Usuario<string> u = actual->GetDato();
-        if (u.obtenerCorreo() == correo && u.obtenerContrasenia() == contrasenia) {
+        if (u.obtenercorreo() == correo && u.obtenerContrasenia() == contrasenia) {
             usuarioActual = u;
             valido = true;
             break;

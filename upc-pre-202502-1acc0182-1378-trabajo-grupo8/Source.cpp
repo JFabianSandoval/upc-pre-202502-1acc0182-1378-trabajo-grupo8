@@ -11,6 +11,33 @@ Publicacion* story = new Story(); */
 #include "ListaSimple.h"
 using namespace std;
 
+int main()
+{
+
+    short id=1;
+    string nombres, paterno, materno, correo, contra;
+
+    cout << "Ingrese nombre de la persona" << endl;
+    cin >> nombres;
+    cout << "Ingrese apellido paterno" << endl;
+    cin>> paterno;
+    cout << "Ingrese apellido materno" << endl;
+    cin>>materno;
+    cout << "Ingrese Correo" << endl;
+    cin >> correo;
+    cout << "datos aceptados con exito";
+    system("pause");
+    Persona<string>* nuevaPersona = new Persona<string> (id,nombres, paterno, materno, "123321das", correo);
+    cout << "persona creado con exito";
+    system("pause");
+    nuevaPersona->imprimir(cout, *nuevaPersona);
+    system("pause");
+}
+
+
+
+
+#if 0
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -82,3 +109,4 @@ int main() {
 
     return 0;
 }
+#endif

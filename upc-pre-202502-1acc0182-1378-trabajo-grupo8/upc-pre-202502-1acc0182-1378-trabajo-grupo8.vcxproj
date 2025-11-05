@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="ArbolBinario.h" />
     <ClInclude Include="Archivo.h" />
     <ClInclude Include="Compartir.h" />
     <ClInclude Include="Configuracion.h" />

@@ -16,8 +16,7 @@ public:
     Persona() : id(0), nombres(" "), paterno(" "), materno(" "), correo(" "), contrasenia(" ") {};
 
     Persona(short id, P nom, P ape1, P ape2, P contra, string email)
-        : id(id), nombres(nom), paterno(ape1), materno(ape2), contrasenia(contra), correo(correo) {
-    }
+        : id(id), nombres(nom), paterno(ape1), materno(ape2), contrasenia(contra), correo(email) {};
     //GETTERS
     short getID() const;
     P getNombres()const;
@@ -32,8 +31,8 @@ public:
     void setApellidoMaterno(P ape2);
     void setcorreo(string correo);
     void setContrasenia(P contra);
-    void imprimir(ostream &os, Persona<P> P)const;
     //METODOS
+    void imprimir(ostream &os)const;
    
 };
 //IMPLEMENTACION
@@ -58,19 +57,19 @@ void Persona<P>::setApellidoPaterno(P ape1) { paterno = ape1; }
 template<class P>
 void Persona<P>::setApellidoMaterno(P ape2) { materno = ape2; }
 template<class P>
-void Persona<P>::setcorreo(string correo) { correo = correo; }
+void Persona<P>::setcorreo(string email) { correo = email; }
 template<class P>
 void Persona<P>::setContrasenia(P contra) { contrasenia = contra; }
 template<class P>
-void Persona<P>::imprimir(ostream& os, Persona<P> persona)const
+void Persona<P>::imprimir(ostream& os)const
 {
-    os << "Nombres: " << persona.nombres << endl <<
-        "Apellido Paterno: " << persona.paterno << endl <<
-        "Apellido Materno: " << persona.materno << endl <<
-        "Correo: " << persona.correo << endl;
+    os << "Nombres: " << this->nombres << endl <<
+        "Apellido Paterno: " << this->paterno << endl <<
+        "Apellido Materno: " << this->materno << endl <<
+        "Correo: " << this->correo << endl;
 }
 template<class P>
-ostream& operator<<(ostream& os, Persona<P> persona)
+ostream& operator<<(ostream& os, const Persona<P> &persona)
 {
    persona.imprimir(os);
     return os;

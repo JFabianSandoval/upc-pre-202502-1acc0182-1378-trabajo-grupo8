@@ -119,6 +119,7 @@
     <ClInclude Include="Archivo.h" />
     <ClInclude Include="Compartir.h" />
     <ClInclude Include="Configuracion.h" />
+    <ClInclude Include="Cuenta.h" />
     <ClInclude Include="Feed.h" />
     <ClInclude Include="Fotos.h" />
     <ClInclude Include="Guardar.h" />

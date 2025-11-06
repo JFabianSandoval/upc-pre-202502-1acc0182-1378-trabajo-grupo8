@@ -1,32 +1,50 @@
 #pragma once
 #include "Persona.h"
+#include "Cuenta.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
 template <class U>
-class Usuario : public Persona<U>
+class Usuario : public Persona<U>, public Cuenta
 {
 private:
 	int amigos;
-	bool estado; // si es 1 esta activo si es 0 inactivo
-
+	bool estado; // 1 = activo | 0 = inactivo
+	bool validarInicioSesion(const U& correoIngresado, const U contraIngresada)const
+	{
+		return(this->getCorreo == correoIngresado) && (this->getContrasenia == contraIngresada);
+	}
 public:
-	Usuario(int id, string nombres, string correo, string contrasenia,
-		bool estadoUsuario, string tipo, int numSeguidores, int numPublicaciones)
-		: Persona<U>(id, nombres, correo, contrasenia) 
-	{
-		estado = estadoUsuario;
-		tipoUsuario = tipo;
-		seguidores = numSeguidores;
-		publicaciones = numPublicaciones;
-	}
-	Usuario()
-	{
-		amigos = 0;
-		estado = 0;
-	}
+	//CONSTRUCTORES
+	Usuario() :Persona<U>(0, "", "", "", "", "") {};
+	Usuario(short _id, U _nombres, U _paterno, U _materno, string _correo, U _contrasenia)
+		: Persona<U>(_id, _nombres, _paterno, _materno, _correo, _contrasenia) {};
 
+	void iniciarSesion(const string& _correo, const U& _contra) override
+	{
+		if (validarInicioSesion(_correo, _contra))
+		{
+			estado = true;
+			cout << "[User] Inicio de Sesion Exitoso" << endl;
+		}
+		else
+		{
+			cout << "[User] Correo o Contraseña son incorrectos" << endl;
+		}
+	}
+	void cerrarSesion()override
+	{
+		if (estado)
+		{
+			estado = false;
+			cout << "[User] Sesión Cerrada" << endl;
+		}
+		else
+		{
+			cout << "[User] No hay Sesion Activa" << endl;
+		}
+	}
 	//USUARIO SEGUN PUBLICACIONES
 	void registrarse()
 	{
@@ -54,165 +72,92 @@ public:
 
 		cout << "\nUsuario registrado correctamente.\n";
 	};
-
-	void iniciarSesion()
+	void crearPost(string contenido)override
 	{
-		cout << "\n--- Inicio de sesión ---\n";
-		string correoIngresado;
-		U contraIngresada;
-
-		cout << "Correo: ";
-		cin >> correoIngresado;
-		cout << "Contrasenia: ";
-		cin >> contraIngresada;
-
-		if (this->validarInicioSesion(correoIngresado, contraIngresada))
+		if (!estado)
 		{
-			estado = 1;
-			cout << "Inicio de sesion exitoso.\n";
+			cout << "[User] Debes Iniciar Sesión" << endl;
 		}
 		else
 		{
-			cout << "Correo o contraseña incorrectos.\n";
+			cout << "[User] Post Creado con Exito" << endl;
+			cout << "Contenido:" << endl;
+			cout << contenido;
 		}
 	};
-
-	void cerrarSesion()
+	void editarPost(int idPos,const string& nuevoContenido)override
 	{
-		if (estado == 1)
+		if(!estado)
 		{
-			estado = 0;
-			cout << "Sesión cerrada correctamente.\n";
+			cout << "[User] Debes Iniciar Sesion" << endl;
 		}
 		else
 		{
-			cout << "No hay una sesión activa.\n";
+			cout << "[User] Post Editado con Exito" << endl;
+			cout << "[User] Post " << idPos << " editado a: " <<endl<< nuevoContenido << endl;
 		}
 	};
-
-	void crearPost()
+	void eliminarPost(int idPos)override
 	{
-		cout << "\nEscribe el contenido de tu publicación: ";
-		string contenido;
-		cin.ignore();
-		getline(cin, contenido);
-		cout << "\nPublicación creada: \"" << contenido << "\"\n";
+		if (!estado)
+		{
+			cout << "[User] Debes Iniciar Sesion" << endl;
+		}
+		else
+		{
+			cout << "[User] Eliminaste tu Post " << idPos << endl;
+		}
 	};
-
-	void editarPost()
+	void comentar(int idPos, const string& comentario)override
 	{
-		cout << "\nSelecciona la publicación que deseas editar (simulado)...\n";
-		cout << "Publicación editada correctamente.\n";
+		if (!estado)
+		{
+			cout << "[User] Debes Iniciar Sesion" << endl;
+		}
+		else
+		{
+			cout << "[User] Comentaste este Post " << idPos << endl << "Comentario: " << comentario << endl;
+		}
 	};
-
-	void compartirPost()
+	void eliminarComentario(int idComentario)override
 	{
-		cout << "\nHas compartido una publicación.\n";
+		if (!estado)
+		{
+			cout << "[User] Debes Iniciar Sesion" << endl;
+		}
+		else
+		{
+			cout << "[User] Eliminaste tu comentario " << idComentario << ".\n";
+		}
 	};
-
-	void publicarPost()
+	void reportarUsuario(int idUsuario) override
 	{
-		cout << "\nTu publicación ha sido publicada exitosamente.\n";
+		cout << "[User] Reportaste al usuario " << idUsuario << ".\n";
 	};
-
-	void eliminarPost()
-	{
-		cout << "\nPublicación eliminada correctamente.\n";
-	};
-
-	void reportar()
-	{
-		cout << "\nHas reportado una publicacion o usuario.\n";
-	};
-	void cambiarContraseña() {
-		cout<<"Vas a cambiar contrasenia."
-	};
-	// USUARIO SEGUN SOLICITUDES DE AMISTAD
-	void enviarSoli()
-	{
-		cout << "\nSolicitud de amistad enviada.\n";
-	};
-
-	void reportarUsuario()
-	{
-		cout << "\nHas reportado a un usuario.\n";
-	};
-
-	void eliminarSoli()
-	{
-		cout << "\nHas cancelado una solicitud de amistad.\n";
-	};
-
-	void aceptarAmigo()
-	{
-		amigos++;
-		cout << "\nHas aceptado una solicitud. Ahora tienes " << amigos << " amigos.\n";
-	};
-
 	void agregarAmigo()
 	{
-		amigos++;
-		cout << "\nHas agregado un nuevo amigo. Total: " << amigos << " amigos.\n";
+		++amigos;
+		cout << "Ahora tienes " << amigos << " amigos.\n";
 	};
-
 	void eliminarAmigo()
 	{
 		if (amigos > 0)
 		{
-			amigos--;
-			cout << "\nHas eliminado un amigo. Ahora tienes " << amigos << " amigos.\n";
+			--amigos;
+			cout << "Ahora tienes " << amigos << " amigos.\n";
 		}
 		else
 		{
-			cout << "\nNo tienes amigos que eliminar.\n";
+			cout << "No tienes amigos que eliminar.\n";
 		}
 	};
-
-	void bloquearAmigo()
+	void verPanel() const override
 	{
-		cout << "\nHas bloqueado a un usuario.\n";
-	};
-
-	// VIEWERS SEGUN PUBLICACIONES
-	void comentar()
-	{
-		string comentario;
-		cout << "\nEscribe tu comentario: ";
-		cin.ignore();
-		getline(cin, comentario);
-		cout << "Comentario publicado: \"" << comentario << "\"\n";
-	};
-
-	void eliminarComentario()
-	{
-		cout << "\nComentario eliminado.\n";
-	};
-
-	void responderComentario()
-	{
-		string respuesta;
-		cout << "\nEscribe tu respuesta: ";
-		cin.ignore();
-		getline(cin, respuesta);
-		cout << "Respuesta enviada: \"" << respuesta << "\"\n";
-	};
-
-	//SEGUIDORES
-	void verSeguidores()
-	{
-		cout << "\nMostrando lista de seguidores (simulado)...\n";
-	};
-	// --- Métodos Getters ---
-	string obtenercorreo()
-	{
-		return correo;
+		cout << "Panel de Usuario (básico): crear/editar/eliminar tus posts, comentar y reportar.\n";
 	}
-	string obtenerContrasenia()
+	void cambiarContrasenia(const string& nueva)
 	{
-		return contrasenia;
-	}
-
-
-
-
+		this->setContrasenia(nueva);
+		cout << "[User] Contraseña actualizada.\n";
+	};
 };

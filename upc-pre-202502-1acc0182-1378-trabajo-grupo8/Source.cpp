@@ -30,7 +30,7 @@ int main()
     Persona<string>* nuevaPersona = new Persona<string> (id,nombres, paterno, materno, "123321das", correo);
     cout << "persona creado con exito";
     system("pause");
-    nuevaPersona->imprimir(cout, *nuevaPersona);
+    nuevaPersona->imprimir(cout);
     system("pause");
 }
 

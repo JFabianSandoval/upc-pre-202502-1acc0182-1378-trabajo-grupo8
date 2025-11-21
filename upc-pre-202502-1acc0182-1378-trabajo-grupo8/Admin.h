@@ -1,104 +1,122 @@
 #pragma once
 #include "Persona.h"
+#include "Cuenta.h"
 #include <iostream>
 #include <string>
 using namespace std;
-
-template <class A>
-class Admin : public Persona<A>
+template <class T>
+class Admin : public Persona<T>, public Cuenta
 {
 private:
-	bool esAdmin;
-	int amigos;
-
+    bool estado; // Sesión activa o no
+    bool validarInicioSesion(const string& correoIngresado, const T& contraIngresada) const
+    {
+        return (this->correo == correoIngresado) && (this->contrasenia == contraIngresada);
+    }
 public:
-
-	//ADMIN SEGUN USUARIO
-	void banearUsuario()
-	{
-		cout << "\nIngrese el nombre del usuario que desea banear: ";
-		string usuario;
-		cin >> usuario;
-		cout << "El usuario \"" << usuario << "\" ha sido baneado temporalmente del sistema.\n";
-	};
-
-	void suspenderUsuario()
-	{
-		cout << "\nIngrese el nombre del usuario a suspender: ";
-		string usuario;
-		cin >> usuario;
-		cout << "El usuario \"" << usuario << "\" ha sido suspendido por incumplir las normas.\n";
-	};
-
-	void restaurarUsuario()
-	{
-		cout << "\nIngrese el nombre del usuario a restaurar: ";
-		string usuario;
-		cin >> usuario;
-		cout << "El usuario \"" << usuario << "\" ha sido restaurado correctamente.\n";
-	};
-
-	//ADMIN SEGUN ELIMINAR
-	void eliminarComentario()
-	{
-		cout << "\nIngrese el ID o contenido del comentario a eliminar: ";
-		string comentario;
-		cin.ignore();
-		getline(cin, comentario);
-		cout << "Comentario \"" << comentario << "\" eliminado correctamente del sistema.\n";
-	};
-
-	void eliminarPost()
-	{
-		cout << "\nIngrese el ID o título de la publicación a eliminar: ";
-		string publicacion;
-		cin.ignore();
-		getline(cin, publicacion);
-		cout << "La publicación \"" << publicacion << "\" ha sido eliminada correctamente.\n";
-	};
-
-	//ADMIN SEGUN REPORTES
-	void revisarReportes()
-	{
-		cout << "\nMostrando lista de reportes recientes (simulado)...\n";
-		cout << "1. Usuario reportado por lenguaje inapropiado.\n";
-		cout << "2. Publicación con contenido ofensivo.\n";
-		cout << "3. Comentario denunciado por spam.\n";
-		cout << "\nFin de la lista de reportes.\n";
-	};
-
-	void resolverReportes()
-	{
-		cout << "\nIngrese el ID del reporte que desea resolver: ";
-		int id;
-		cin >> id;
-		cout << "Reporte #" << id << " resuelto correctamente.\n";
-	};
-
-	//ADMIN SEGUN CONTENIDO
-	void gestionarContenido()
-	{
-		cout << "\nAccediendo a las opciones de gestión de contenido...\n";
-		cout << "1. Revisar publicaciones.\n";
-		cout << "2. Revisar historias.\n";
-		cout << "3. Revisar comentarios.\n";
-		cout << "\nContenido revisado correctamente.\n";
-	};
-
-	void gestionarPublicidad()
-	{
-		cout << "\nMostrando panel de gestión de publicidad (simulado)...\n";
-		cout << "1. Revisar campañas activas.\n";
-		cout << "2. Aprobar nuevas solicitudes.\n";
-		cout << "3. Eliminar anuncios inapropiados.\n";
-		cout << "Publicidad actualizada exitosamente.\n";
-	};
-
-	void validadContenido()
-	{
-		cout << "\nIngrese el ID del contenido a validar: ";
-		int id;
-		cin >> id;
-		cout << "El contenido #" << id << " ha sido validado y aprobado correctamente.\n";
-	};
+    // CONSTRUCTORES
+    Admin() : Persona<T>(0, "", "", "", "", ""), estado(false) {}
+    Admin(short id, T nom, T ape1, T ape2, string email, T contra)
+        : Persona<T>(id, nom, ape1, ape2, email, contra), estado(false) {}
+    // AUTENTICACIÓN
+    void iniciarSesion(const string& correo, const T& contra) override
+    {
+        if (validarInicioSesion(correo, contra))
+        {
+            estado = true;
+            cout << "[Admin] Inicio de sesión exitoso.\n";
+        }
+        else
+        {
+            cout << "[Admin] Credenciales incorrectas.\n";
+        }
+    }
+    void cerrarSesion() override
+    {
+        if (estado)
+        {
+            estado = false;
+            cout << "[Admin] Sesión cerrada.\n";
+        }
+        else
+        {
+            cout << "[Admin] No hay sesión activa.\n";
+        }
+    }
+    // PERMISOS DE ADMINISTRADOR
+    bool puedeBanear() const override { return true; }
+    void banearUsuario(int idUsuario) override
+    {
+        if (estado)
+        {
+            cout << "[Admin] Usuario " << idUsuario << " ha sido baneado.\n";
+        }
+        else
+        {
+            cout << "[Admin] Debes iniciar sesión para banear usuarios.\n";
+        }
+    }
+    // PUBLICACIONES
+    void crearPost(const string& contenido) override
+    {
+        if (!estado)
+        {
+            cout << "[Admin] Debes iniciar sesión.\n";
+            return;
+        }
+        cout << "[Admin] Post creado: " << contenido << endl;
+    }
+    void editarPost(int idPost, const string& nuevoContenido) override
+    {
+        if (!estado)
+        {
+            cout << "[Admin] Debes iniciar sesión.\n";
+            return;
+        }
+        cout << "[Admin] Post " << idPost << " editado a:\n" << nuevoContenido << endl;
+    }
+    void eliminarPost(int idPost) override
+    {
+        if (!estado)
+        {
+            cout << "[Admin] Debes iniciar sesión.\n";
+            return;
+        }
+        cout << "[Admin] Post " << idPost << " eliminado.\n";
+    }
+    // COMENTARIOS
+    void comentar(int idPost, const string& comentario) override
+    {
+        if (!estado)
+        {
+            cout << "[Admin] Debes iniciar sesión.\n";
+            return;
+        }
+        cout << "[Admin] Comentaste en post " << idPost << ": " << comentario << endl;
+    }
+    void eliminarComentario(int idComentario) override
+    {
+        if (!estado)
+        {
+            cout << "[Admin] Debes iniciar sesión.\n";
+            return;
+        }
+        cout << "[Admin] Comentario " << idComentario << " eliminado.\n";
+    }
+    // REPORTES
+    void reportarUsuario(int idUsuario) override
+    {
+        cout << "[Admin] El usuario " << idUsuario << " ha sido reportado y evaluado.\n";
+    }
+    // PANEL PERSONALIZADO
+    void verPanel() const override
+    {
+        cout << "\n===== PANEL DE ADMINISTRADOR =====\n";
+        cout << "• Gestionar posts\n";
+        cout << "• Eliminar comentarios\n";
+        cout << "• Banear usuarios\n";
+        cout << "• Supervisar actividad\n";
+        cout << "• Edición global del sistema\n";
+        cout << "==================================\n\n";
+    }
 };

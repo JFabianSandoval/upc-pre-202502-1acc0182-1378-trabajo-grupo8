@@ -21,7 +21,7 @@ public:
     // Permisos (polimorfismo por comportamiento)
     virtual bool puedeBanear() const { return false; }
     virtual void banearUsuario(int /*idUsuario*/) {
-        cout << "[ICuenta] No tienes permisos para banear.\n";
+        cout << "[Cuenta] No tienes permisos para banear.\n";
     }
 
     // Panel (muestra diferencias entre perfiles)

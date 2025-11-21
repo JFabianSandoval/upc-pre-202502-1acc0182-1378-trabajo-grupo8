@@ -60,7 +60,7 @@ template<class P>
 void Persona<P>::setcorreo(string email) { correo = email; }
 template<class P>
 void Persona<P>::setContrasenia(P contra) { contrasenia = contra; }
-template<class P>
+template<class P> 
 void Persona<P>::imprimir(ostream& os)const
 {
     os << "Nombres: " << this->nombres << endl <<

@@ -25,7 +25,7 @@ public:
     }
 
     // Panel (muestra diferencias entre perfiles)
-    virtual void verPanel() const {
+    virtual void verPanel() const { //visual
         cout << "Panel básico de usuario.\n";
     }
 };

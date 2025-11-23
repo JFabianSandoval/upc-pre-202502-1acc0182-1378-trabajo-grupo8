@@ -13,7 +13,6 @@ private:
     string ruta = "Usuarios.txt";
 
 public:
-    // ✅ Crear archivo inicial con usuarios demo
     void crearArchivoInicial() {
         ifstream test(ruta);
         if (test.good()) return; // ya existe
@@ -31,8 +30,7 @@ public:
         out.close();
     }
 
-    // ✅ Cargar usuarios en lista simple
-    void cargarUsuarios(ListaSimple<Usuario<T>>& listaUsuarios) {
+    void cargarUsuarios(ListaDoble<Usuario<T>>& listaUsuarios) {
         ifstream in(ruta);
         if (!in.is_open()) {
             cout << "No se pudo abrir " << ruta << endl;
@@ -62,8 +60,7 @@ public:
         in.close();
     }
 
-    // ✅ Guardar lista actualizada (sobrescribe el TXT)
-    void guardarUsuarios(ListaSimple<Usuario<T>>& listaUsuarios) {
+    void guardarUsuarios(ListaDoble<Usuario<T>>& listaUsuarios) {
         ofstream out(ruta, ios::trunc);
         if (!out.is_open()) {
             cout << "Error al guardar archivo.\n";

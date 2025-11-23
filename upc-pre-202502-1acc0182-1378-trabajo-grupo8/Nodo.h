@@ -8,31 +8,31 @@ class Nodo
 private:
     N dato;
     Nodo<N>* siguiente;
+    Nodo<N>* anterior;
 
 public:
-    Nodo()
-    {
-        siguiente = nullptr;
-    }
-    Nodo(N valor)
-    {
-        dato = valor;
-        siguiente = nullptr;
-    }
-    N GetDato()
-    {
+    Nodo() : siguiente(nullptr), anterior(nullptr) {}
+
+    Nodo(N valor) : dato(valor), siguiente(nullptr), anterior(nullptr) {}
+
+    N GetDato() const {
         return dato;
     }
-    void SetDato(N valor)
-    {
+    void SetDato(N valor) {
         dato = valor;
     }
-    Nodo<N>* GetSiguiente()
-    {
+
+    Nodo<N>* GetSiguiente() const {
         return siguiente;
     }
-    void SetSiguiente(Nodo<N>* nodo)
-    {
+    void SetSiguiente(Nodo<N>* nodo) {
         siguiente = nodo;
+    }
+
+    Nodo<N>* GetAnterior() const {
+        return anterior;
+    }
+    void SetAnterior(Nodo<N>* nodo) {
+        anterior = nodo;
     }
 };

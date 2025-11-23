@@ -156,9 +156,13 @@ public:
 	{
 		cout << "Panel de Usuario (básico): crear/editar/eliminar tus posts, comentar y reportar.\n";
 	}
+
+
+	/*
 	void cambiarContrasenia(const string& nueva)
 	{
 		this->setContrasenia(nueva);
 		cout << "[User] Contraseña actualizada.\n";
 	};
+	*/
 };

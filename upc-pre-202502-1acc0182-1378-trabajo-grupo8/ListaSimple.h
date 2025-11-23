@@ -2,130 +2,153 @@
 #include <iostream>
 #include "Nodo.h"
 using namespace std;
+
+// se supone que con estas modificaciones ya fucniona como lista doble 
+
+
 template <class L>
-class ListaSimple
+class ListaDoble
 {
 private:
-	Nodo<L>* cabeza;
+    Nodo<L>* cabeza;
+    Nodo<L>* cola;
+
 public:
-	ListaSimple() { cabeza = nullptr; }
-	~ListaSimple() {}
-	Nodo<L>* GetCabeza()
-	{
-		return cabeza;
-	}
-	void InsertarAlFinal(L valor)
-	{
-		Nodo<L>* nuevoNodo = new Nodo<L>(valor);
-		if (cabeza == nullptr)
-		{
-			cabeza = nuevoNodo;
-		}
-		else
-		{
-			Nodo<L>* temp = cabeza;
-			while (temp->GetSiguiente())
-			{
-				temp = temp->GetSiguiente();
-				cout << "Funciona";
-			}
-			temp->SetSiguiente(nuevoNodo);
-			cout << endl << "El nodo fue insertado al final";
-		}
-	}
-	void InsertarAlInicio(L valor)
-	{
-		Nodo<L>* nuevoNodo = new Nodo<L>(valor);
-		if (cabeza == nullptr)
-		{
-			cabeza = nuevoNodo;
-		}
-		else //ya hay elementos 
-		{
-			nuevoNodo->SetSiguiente(cabeza);
-			cabeza = nuevoNodo;
-		}
-	};
-	void EliminarAlFinal()
-	{
-		if (cabeza == nullptr)
-		{
-			cout << "Lista Vacia";
-			return;
-		}
-		else if (cabeza->GetSiguiente() == nullptr)//solo si hay un nodo
-		{
-			delete cabeza;
-			cabeza == nullptr;
-			return;
-		}
-		Nodo<L>* temp = cabeza;
-		while (temp->GetSiguiente()->GetSiguiente() != nullptr)
-		{
-			temp = temp->GetSiguiente();
-		}
-		delete temp->GetSiguiente();
-		temp->SetSiguiente(nullptr);
+    ListaDoble() : cabeza(nullptr), cola(nullptr) {}
 
+    ~ListaDoble() {}
 
-	};
-	void EliminarAlInicio()
-	{
-		if (cabeza == nullptr)
-		{
-			cout << "Lista Vacia";
-			return;
-		}
-		else if (cabeza->GetSiguiente() == nullptr)//solo si hay un nodo
-		{
-			delete cabeza;
-			cabeza == nullptr;
-			return;
-		}
-		Nodo<L>* temp = cabeza;
-		cabeza = cabeza->GetSiguiente();
-		delete temp;
-	};
-	void BuscarElemento(L valor)
-	{
-		if (cabeza == nullptr)
-		{
-			cout << "Lista Vacia";
-		}
-		else
-		{
-			Nodo<L>* temp = cabeza;
-			while (temp != nullptr)
-			{
-				if (temp->GetDato() == valor)
-				{
-					cout << "El valor esta en la lista." << endl;
-					return;
-				}
-				temp = temp->GetSiguiente();
-			}
-			cout << "No esta el elemento o valor en la lista" << endl;
-		}
+    Nodo<L>* GetCabeza() { return cabeza; }
+    Nodo<L>* GetCola() { return cola; }
 
-	};
-	void MostrarLista()
-	{
-		if (cabeza == nullptr)
-		{
-			cout << endl << "LISTA VACIA";
-			return;
-		}
-		Nodo<L>* temp = cabeza;
-		cout << endl << "Elementos de la lista: ";
-		while (temp != nullptr)
-		{
-			cout << temp->GetDato();
-			if (temp->GetSiguiente() != nullptr)
-			{
-				cout << " -> ";
-			}
-			temp = temp->GetSiguiente();
-		}
-		cout << " -> NULL";
-	}
+    // INSERTAR AL FINAL
+    void InsertarAlFinal(L valor)
+    {
+        Nodo<L>* nuevo = new Nodo<L>(valor);
+
+        if (cabeza == nullptr)
+        {
+            cabeza = cola = nuevo;
+        }
+        else
+        {
+            cola->SetSiguiente(nuevo);
+            nuevo->SetAnterior(cola);
+            cola = nuevo;
+        }
+        cout << "Insertado al final: " << valor << endl;
+    }
+
+    // INSERTAR AL INICIO
+    void InsertarAlInicio(L valor)
+    {
+        Nodo<L>* nuevo = new Nodo<L>(valor);
+
+        if (cabeza == nullptr)
+        {
+            cabeza = cola = nuevo;
+        }
+        else
+        {
+            nuevo->SetSiguiente(cabeza);
+            cabeza->SetAnterior(nuevo);
+            cabeza = nuevo;
+        }
+        cout << "Insertado al inicio: " << valor << endl;
+    }
+
+    // ELIMINAR AL INICIO
+    void EliminarAlInicio()
+    {
+        if (cabeza == nullptr)
+        {
+            cout << "Lista vacía\n";
+            return;
+        }
+
+        if (cabeza == cola)
+        {
+            delete cabeza;
+            cabeza = cola = nullptr;
+            return;
+        }
+
+        Nodo<L>* temp = cabeza;
+        cabeza = cabeza->GetSiguiente();
+        cabeza->SetAnterior(nullptr);
+        delete temp;
+    }
+
+    // ELIMINAR AL FINAL
+    void EliminarAlFinal()
+    {
+        if (cabeza == nullptr)
+        {
+            cout << "Lista vacía\n";
+            return;
+        }
+
+        if (cabeza == cola)
+        {
+            delete cabeza;
+            cabeza = cola = nullptr;
+            return;
+        }
+
+        Nodo<L>* temp = cola;
+        cola = cola->GetAnterior();
+        cola->SetSiguiente(nullptr);
+        delete temp;
+    }
+
+    // BUSCAR
+    void BuscarElemento(L valor)
+    {
+        Nodo<L>* temp = cabeza;
+
+        while (temp != nullptr)
+        {
+            if (temp->GetDato() == valor)
+            {
+                cout << "Elemento encontrado: " << valor << endl;
+                return;
+            }
+            temp = temp->GetSiguiente();
+        }
+
+        cout << "Elemento NO encontrado\n";
+    }
+
+    // MOSTRAR DE INICIO A FIN
+    void MostrarLista()
+    {
+        Nodo<L>* temp = cabeza;
+
+        cout << "Lista -> ";
+        while (temp != nullptr)
+        {
+            cout << temp->GetDato();
+            if (temp->GetSiguiente() != nullptr)
+                cout << " <-> ";
+            temp = temp->GetSiguiente();
+        }
+        cout << " -> NULL\n";
+    }
+
+    // NUEVO: MOSTRAR DE FIN A INICIO
+    void MostrarReversa()
+    {
+        Nodo<L>* temp = cola;
+
+        cout << "Reversa -> ";
+        while (temp != nullptr)
+        {
+            cout << temp->GetDato();
+            if (temp->GetAnterior() != nullptr)
+                cout << " <-> ";
+            temp = temp->GetAnterior();
+        }
+        cout << " -> NULL\n";
+    }
+
 };

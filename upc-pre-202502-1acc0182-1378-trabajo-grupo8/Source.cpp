@@ -1,11 +1,11 @@
 ﻿#include <iostream>
 #include "MenuIG.h"
-#include "GeneradorDataSetIG.h"
+//#include "GeneradorDataSetIG.h"
 
 using namespace std;
 
 int main() {
-      GeneradorDataSetIG::generarPostsYComentarios();
+  //    GeneradorDataSetIG::generarPostsYComentarios();
 
 
     MenuIG menu;

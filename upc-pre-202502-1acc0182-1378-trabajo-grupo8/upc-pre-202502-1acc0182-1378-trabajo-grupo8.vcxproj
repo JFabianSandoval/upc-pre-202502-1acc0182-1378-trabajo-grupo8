@@ -117,6 +117,7 @@
     <ClInclude Include="Admin.h" />
     <ClInclude Include="ArbolBinario.h" />
     <ClInclude Include="Archivo.h" />
+    <ClInclude Include="Comentario.h" />
     <ClInclude Include="Compartir.h" />
     <ClInclude Include="Configuracion.h" />
     <ClInclude Include="Cuenta.h" />
@@ -126,7 +127,7 @@
     <ClInclude Include="Interacciones.h" />
     <ClInclude Include="Librerias.h" />
     <ClInclude Include="ListaEnlazada.h" />
-    <ClInclude Include="ListaSimple.h" />
+    <ClInclude Include="ListaDoble.h" />
     <ClInclude Include="Mensaje.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
@@ -134,7 +135,7 @@
     <ClInclude Include="Persona.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="Prueba.h" />
-    <ClInclude Include="Publicacion.h" />
+    <ClInclude Include="Post.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="Reaccion.h" />
     <ClInclude Include="Seguidores.h" />

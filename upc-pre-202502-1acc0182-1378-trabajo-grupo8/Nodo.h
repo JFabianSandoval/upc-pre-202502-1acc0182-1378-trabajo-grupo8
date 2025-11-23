@@ -1,38 +1,25 @@
 #pragma once
-#include <iostream>
-using namespace std;
-
-template <class N>
-class Nodo
-{
+#include<iostream>
+template <class T>
+class NodoDoble {
 private:
-    N dato;
-    Nodo<N>* siguiente;
-    Nodo<N>* anterior;
+    T dato;
+    NodoDoble<T>* siguiente;
+    NodoDoble<T>* anterior;
 
 public:
-    Nodo() : siguiente(nullptr), anterior(nullptr) {}
-
-    Nodo(N valor) : dato(valor), siguiente(nullptr), anterior(nullptr) {}
-
-    N GetDato() const {
-        return dato;
-    }
-    void SetDato(N valor) {
+    NodoDoble(T valor) {
         dato = valor;
+        siguiente = nullptr;
+        anterior = nullptr;
     }
 
-    Nodo<N>* GetSiguiente() const {
-        return siguiente;
-    }
-    void SetSiguiente(Nodo<N>* nodo) {
-        siguiente = nodo;
-    }
+    T GetDato() { return dato; }
+    void SetDato(T val) { dato = val; }
 
-    Nodo<N>* GetAnterior() const {
-        return anterior;
-    }
-    void SetAnterior(Nodo<N>* nodo) {
-        anterior = nodo;
-    }
+    NodoDoble<T>* GetSiguiente() { return siguiente; }
+    void SetSiguiente(NodoDoble<T>* n) { siguiente = n; }
+
+    NodoDoble<T>* GetAnterior() { return anterior; }
+    void SetAnterior(NodoDoble<T>* n) { anterior = n; }
 };

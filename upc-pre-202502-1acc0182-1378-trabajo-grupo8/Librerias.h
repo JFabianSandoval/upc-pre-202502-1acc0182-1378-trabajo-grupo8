@@ -1,5 +1,5 @@
 #pragma once
-#include "ListaSimple.h"
+#include "ListaDoble.h"
 #include "Admin.h"
 #include "Archivo.h"
 #include "Compartir.h"
@@ -15,7 +15,7 @@
 #include "Notificaciones.h"
 #include "Persona.h"
 #include "Pila.h"
-#include "Publicacion.h"
+#include "Post.h"
 #include "Reaccion.h"
 #include "Seguidores.h"
 #include "Story.h"

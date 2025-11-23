@@ -13,7 +13,7 @@ private:
 	bool estado; // 1 = activo | 0 = inactivo
 	bool validarInicioSesion(const U& correoIngresado, const U contraIngresada)const
 	{
-		return(this->getCorreo == correoIngresado) && (this->getContrasenia == contraIngresada);
+		return(this->getCorreo() == correoIngresado) && (this->getContrasenia() == contraIngresada);
 	}
 public:
 	//CONSTRUCTORES
@@ -63,11 +63,12 @@ public:
 		cout << "Contraseña: ";
 		cin >> contra;
 
-		this->establecerNombres(nombre);
-		this->establecerApellidoPaterno(ape1);
-		this->establecerApellidoMaterno(ape2);
-		this->establecerCorreo(correo);
-		this->establecerContrasenia(contra);
+		this->setNombres(nombre);
+		this->setApellidoPaterno(ape1);
+		this->setApellidoMaterno(ape2);
+		this->setcorreo(correo);
+		this->setContrasenia(contra);
+
 		estado = 1;
 
 		cout << "\nUsuario registrado correctamente.\n";

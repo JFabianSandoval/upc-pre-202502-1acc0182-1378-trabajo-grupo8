@@ -152,7 +152,7 @@ public:
 			cout << "No tienes amigos que eliminar.\n";
 		}
 	};
-	void verPanel() const override
+	void verPanel() const override//visual
 	{
 		cout << "Panel de Usuario (básico): crear/editar/eliminar tus posts, comentar y reportar.\n";
 	}

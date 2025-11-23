@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "Interacciones.h"
 #include <iostream>
 #include <string>
@@ -12,3 +12,4 @@ public:
 		os << "La Interaccion es una reaccion" << endl;
 	}
 };
+*/

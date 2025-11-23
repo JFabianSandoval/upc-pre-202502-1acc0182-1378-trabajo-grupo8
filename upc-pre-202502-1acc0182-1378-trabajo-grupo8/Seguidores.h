@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "Usuario.h"
 #include <iostream>
 #include <string>
@@ -32,3 +32,4 @@ public:
 		cout << "El usuario \"" << usuario << "\" ha sido bloqueado y ya no podrá seguirte ni enviarte solicitudes.\n";
 	};
 };
+*/

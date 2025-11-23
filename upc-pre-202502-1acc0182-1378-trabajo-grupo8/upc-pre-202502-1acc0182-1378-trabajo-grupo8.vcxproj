@@ -115,25 +115,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
-    <ClInclude Include="ArbolBinario.h" />
+    <ClInclude Include="ArbolAVL.h" />
+    <ClInclude Include="ArbolBB.h" />
     <ClInclude Include="Archivo.h" />
+    <ClInclude Include="Cola.h" />
     <ClInclude Include="Comentario.h" />
-    <ClInclude Include="Compartir.h" />
-    <ClInclude Include="Configuracion.h" />
-    <ClInclude Include="Cuenta.h" />
-    <ClInclude Include="Feed.h" />
-    <ClInclude Include="Fotos.h" />
-    <ClInclude Include="Guardar.h" />
-    <ClInclude Include="Interacciones.h" />
-    <ClInclude Include="Librerias.h" />
-    <ClInclude Include="ListaEnlazada.h" />
-    <ClInclude Include="ListaDoble.h" />
-    <ClInclude Include="Mensaje.h" />
-    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Comparadores.h" />
+    <ClInclude Include="ControladoraIG.h" />
+    <ClInclude Include="Funciones_generales.h" />
+    <ClInclude Include="GeneradorDataSetIG.h" />
+    <ClInclude Include="Grafo.h" />
+    <ClInclude Include="HashTable.h" />
+    <ClInclude Include="Lista.h" />
+    <ClInclude Include="MenuIG.h" />
     <ClInclude Include="Nodo.h" />
-    <ClInclude Include="Notificaciones.h" />
-    <ClInclude Include="Persona.h" />
-    <ClInclude Include="Pila.h" />
+    <ClInclude Include="NodoArbol.h" />
     <ClInclude Include="Prueba.h" />
     <ClInclude Include="Post.h" />
     <ClInclude Include="QuickSort.h" />

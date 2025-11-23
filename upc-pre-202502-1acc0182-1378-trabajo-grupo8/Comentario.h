@@ -1,15 +1,29 @@
 #pragma once
+#include <iostream>
 #include <string>
 using namespace std;
 
 class Comentario {
 private:
-    string contenido;
+    int idPost;
+    string autor;
+    string texto;
+    string fecha;
 
 public:
-    Comentario() {}
-    Comentario(string c) { contenido = c; }
+    Comentario(int idPost, string autor, string texto, string fecha) {
+        this->idPost = idPost;
+        this->autor = autor;
+        this->texto = texto;
+        this->fecha = fecha;
+    }
 
-    string GetContenido() { return contenido; }
-    void SetContenido(string c) { contenido = c; }
+    int getIdPost() { return idPost; }
+    string getAutor() { return autor; }
+    string getTexto() { return texto; }
+    string getFecha() { return fecha; }
+
+    void mostrar() {
+        cout << autor << ": " << texto << " (" << fecha << ")" << endl;
+    }
 };

@@ -34,7 +34,7 @@ void mostrarMenuUsuario(Usuario<U>& usuario) {
 
     map<int, function<void()>> menuUsuario = {
         {1, []() { cout << "Mostrando perfil del usuario...\n"; }},
-        {2, [&usuario]() { usuario.verSeguidores(); }},
+        {2, [&usuario]() { usuario.verAmigos(); }},
         {3, [&usuario]() { usuario.agregarAmigo(); }},
         {4, [&usuario]() { usuario.eliminarAmigo(); }},
         {5, [&usuario]() { usuario.crearPost(); }},

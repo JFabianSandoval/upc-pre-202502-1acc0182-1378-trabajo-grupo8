@@ -1,76 +1,141 @@
 ﻿#include <iostream>
-#include <string>
-#include "Archivo.h"
-#include "ListaDoble.h"
+#include "ListaDoble.h"   // Tu lista doble
 using namespace std;
 
-// Este main SOLO carga los txt y muestra todo para verificar que funciona.
+void menuUsuario();
+void menuPosts();
+void menuComentarios();
+void mostrarMenuPrincipal();
 
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+int main() {
+    int opcion;
 
-    // -------------------------------
-    // 1. Crear el administrador de archivos
-    // -------------------------------
-    Archivo<string> archivo;
+    do {
+        mostrarMenuPrincipal();
+        cin >> opcion;
 
-    // -------------------------------
-    // 2. Crear la lista de usuarios
-    // -------------------------------
-    ListaDoble<Usuario<string>> listaUsuarios;
-
-    // -------------------------------
-    // 3. Cargar todos los datos
-    // -------------------------------
-    archivo.cargarUsuarios(listaUsuarios);
-    archivo.cargarPosts(listaUsuarios);
-    archivo.cargarComentarios(listaUsuarios);
-    archivo.cargarAmigos(listaUsuarios);
-
-    // -------------------------------
-    // 4. Mostrar todo lo cargado
-    // -------------------------------
-    cout << "\n======= USUARIOS CARGADOS =======\n";
-    NodoDoble<Usuario<string>>* u = listaUsuarios.GetCabeza();
-
-    while (u != nullptr) {
-
-        Usuario<string>& usr = u->GetDato();  // referencia al usuario
-
-        cout << "\nID: " << usr.obtenerId()
-            << " | Nombre: " << usr.obtenerNombres()
-            << " | Correo: " << usr.obtenercorreo() << "\n";
-
-        // --------- MOSTRAR POSTS ---------
-        cout << "  Posts:\n";
-        NodoDoble<Post>* p = usr.posts.GetCabeza();
-        while (p != nullptr) {
-            cout << "    - " << p->GetDato().GetContenido() << "\n";
-            p = p->GetSiguiente();
+        switch (opcion) {
+        case 1:
+            menuUsuario();
+            break;
+        case 2:
+            menuPosts();
+            break;
+        case 3:
+            menuComentarios();
+            break;
+        case 0:
+            cout << "\nSaliendo del programa...\n";
+            break;
+        default:
+            cout << "Opción inválida. Intenta nuevamente.\n";
         }
 
-        // --------- MOSTRAR COMENTARIOS ---------
-        cout << "  Comentarios:\n";
-        NodoDoble<Comentario>* c = usr.comentarios.GetCabeza();
-        while (c != nullptr) {
-            cout << "    * " << c->GetDato().GetContenido() << "\n";
-            c = c->GetSiguiente();
-        }
+    } while (opcion != 0);
 
-        // --------- MOSTRAR AMIGOS ---------
-        cout << "  Amigos:\n";
-        NodoDoble<string>* a = usr.amigos.GetCabeza();
-        while (a != nullptr) {
-            cout << "    -> " << a->GetDato() << "\n";
-            a = a->GetSiguiente();
-        }
-
-        u = u->GetSiguiente();
-    }
-
-    cout << "\n\nFIN DE CARGA\n";
-    system("pause");
     return 0;
+}
+
+void mostrarMenuPrincipal() {
+    cout << "\n======= MENU PRINCIPAL =======\n";
+    cout << "1. Gestionar Usuarios\n";
+    cout << "2. Gestionar Posts\n";
+    cout << "3. Gestionar Comentarios\n";
+    cout << "0. Salir\n";
+    cout << "Selecciona una opción: ";
+}
+
+/* ---------------------------
+   MENÚS SECUNDARIOS
+   (versiones simples)
+----------------------------*/
+
+void menuUsuario() {
+    int op;
+    do {
+        cout << "\n--- MENU DE USUARIOS ---\n";
+        cout << "1. Registrar usuario\n";
+        cout << "2. Mostrar usuarios\n";
+        cout << "3. Buscar usuario\n";
+        cout << "0. Volver\n";
+        cout << "Selecciona: ";
+        cin >> op;
+
+        switch (op) {
+        case 1:
+            cout << "(aquí irá registrar usuario)\n";
+            break;
+        case 2:
+            cout << "(aquí irá mostrar usuarios)\n";
+            break;
+        case 3:
+            cout << "(aquí irá buscar usuario)\n";
+            break;
+        case 0:
+            break;
+        default:
+            cout << "Opción inválida.\n";
+        }
+
+    } while (op != 0);
+}
+
+void menuPosts() {
+    int op;
+    do {
+        cout << "\n--- MENU DE POSTS ---\n";
+        cout << "1. Crear Post\n";
+        cout << "2. Mostrar Posts\n";
+        cout << "3. Buscar Post\n";
+        cout << "0. Volver\n";
+        cout << "Selecciona: ";
+        cin >> op;
+
+        switch (op) {
+        case 1:
+            cout << "(aquí irá crear post)\n";
+            break;
+        case 2:
+            cout << "(aquí irá mostrar posts)\n";
+            break;
+        case 3:
+            cout << "(aquí irá buscar post)\n";
+            break;
+        case 0:
+            break;
+        default:
+            cout << "Opción inválida.\n";
+        }
+
+    } while (op != 0);
+}
+
+void menuComentarios() {
+    int op;
+    do {
+        cout << "\n--- MENU DE COMENTARIOS ---\n";
+        cout << "1. Crear comentario\n";
+        cout << "2. Mostrar comentarios\n";
+        cout << "3. Buscar comentario\n";
+        cout << "0. Volver\n";
+        cout << "Selecciona: ";
+        cin >> op;
+
+        switch (op) {
+        case 1:
+            cout << "(aquí irá crear comentario)\n";
+            break;
+        case 2:
+            cout << "(aquí irá mostrar comentarios)\n";
+            break;
+        case 3:
+            cout << "(aquí irá buscar comentario)\n";
+            break;
+        case 0:
+            break;
+        default:
+            cout << "Opción inválida.\n";
+        }
+
+    } while (op != 0);
 }

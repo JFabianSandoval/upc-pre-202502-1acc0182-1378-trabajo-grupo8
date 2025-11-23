@@ -17,12 +17,15 @@ private:
 
 public:
 
-    // ---------------------------
+    // ===============================
     // CARGAR USUARIOS
-    // ---------------------------
+    // ===============================
     void cargarUsuarios(ListaDoble<Usuario<T>>& lista) {
         ifstream in(ufile);
-        if (!in.is_open()) return;
+        if (!in.is_open()) {
+            cout << "No se pudo abrir Usuarios.txt\n";
+            return;
+        }
 
         string linea;
         while (getline(in, linea)) {
@@ -47,12 +50,15 @@ public:
         in.close();
     }
 
-    // ---------------------------
+    // ===============================
     // CARGAR POSTS
-    // ---------------------------
+    // ===============================
     void cargarPosts(ListaDoble<Usuario<T>>& lista) {
         ifstream in(pfile);
-        if (!in.is_open()) return;
+        if (!in.is_open()) {
+            cout << "No se pudo abrir Posts.txt\n";
+            return;
+        }
 
         string linea;
         while (getline(in, linea)) {
@@ -67,7 +73,7 @@ public:
             int id = stoi(sid);
 
             NodoDoble<Usuario<T>>* usr = lista.GetCabeza();
-            while (usr) {
+            while (usr != nullptr) {
                 if (usr->GetDato().obtenerId() == id) {
                     usr->GetDato().posts.InsertarAlFinal(Post(contenido));
                     break;
@@ -78,12 +84,15 @@ public:
         in.close();
     }
 
-    // ---------------------------
+    // ===============================
     // CARGAR COMENTARIOS
-    // ---------------------------
+    // ===============================
     void cargarComentarios(ListaDoble<Usuario<T>>& lista) {
         ifstream in(cfile);
-        if (!in.is_open()) return;
+        if (!in.is_open()) {
+            cout << "No se pudo abrir Comentarios.txt\n";
+            return;
+        }
 
         string linea;
         while (getline(in, linea)) {
@@ -98,7 +107,7 @@ public:
             int id = stoi(sid);
 
             NodoDoble<Usuario<T>>* usr = lista.GetCabeza();
-            while (usr) {
+            while (usr != nullptr) {
                 if (usr->GetDato().obtenerId() == id) {
                     usr->GetDato().comentarios.InsertarAlFinal(Comentario(contenido));
                     break;
@@ -109,29 +118,30 @@ public:
         in.close();
     }
 
-    // ---------------------------
-    // CARGAR AMIGOS
-    // ---------------------------
+    // ===============================
+    // CARGAR AMIGOS POR NOMBRE
+    // ===============================
     void cargarAmigos(ListaDoble<Usuario<T>>& lista) {
         ifstream in(afile);
-        if (!in.is_open()) return;
+        if (!in.is_open()) {
+            cout << "No se pudo abrir Amigos.txt\n";
+            return;
+        }
 
         string linea;
         while (getline(in, linea)) {
             if (linea.empty()) continue;
 
             stringstream ss(linea);
-            string sid, nombreAmigo;
+            string nomUsuario, nomAmigo;
 
-            getline(ss, sid, '|');
-            getline(ss, nombreAmigo, '|');
-
-            int id = stoi(sid);
+            getline(ss, nomUsuario, '|');
+            getline(ss, nomAmigo);
 
             NodoDoble<Usuario<T>>* usr = lista.GetCabeza();
-            while (usr) {
-                if (usr->GetDato().obtenerId() == id) {
-                    usr->GetDato().amigos.InsertarAlFinal(nombreAmigo);
+            while (usr != nullptr) {
+                if (usr->GetDato().obtenerNombres() == nomUsuario) {
+                    usr->GetDato().amigos.InsertarAlFinal(nomAmigo);
                     break;
                 }
                 usr = usr->GetSiguiente();

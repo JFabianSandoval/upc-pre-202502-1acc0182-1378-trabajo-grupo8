@@ -9,9 +9,9 @@ private:
     unordered_map<string, vector<string>> amigos;
 
 public:
-    void agregarAmigo(string user, string amigo) {
-        amigos[user].push_back(amigo);
-    }
+    void agregarAmigo(string user, string amigo) {//1
+        amigos[user].push_back(amigo);//1
+	}//Valoración O(1)
 
     vector<string> obtenerAmigos(string user) {
         if (amigos.count(user))

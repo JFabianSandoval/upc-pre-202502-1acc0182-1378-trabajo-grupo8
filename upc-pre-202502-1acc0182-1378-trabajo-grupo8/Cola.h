@@ -31,20 +31,20 @@ public:
 
 	void encolar(T dato) //agrega un dato al final
 	{
-		Nodo<T>* newNodo = new Nodo<T>(dato);
-		if (esVacia())
+		Nodo<T>* newNodo = new Nodo<T>(dato);//1
+		if (esVacia())//1
 		{
-			inicio = newNodo;
-			fin = inicio;
+			inicio = newNodo;//1
+			fin = inicio;//1
 		}
 		else
 		{
-			fin->siguiente = newNodo;
-			fin = newNodo;
+			fin->siguiente = newNodo;//1
+			fin = newNodo;//1
 		}
 
-		tam++;
-	}
+		tam++;//1
+	}//Valoración O(1)
 
 	T desencolar()  //devuelve el primer dato y lo elimina
 	{

@@ -147,15 +147,15 @@ public:
 		}
 	}
 
-	void enOrden(NodoArbol<T>* nodo)
+	void enOrden(NodoArbol<T>* nodo)//1
 	{
-		if (nodo == nullptr)
+		if (nodo == nullptr)//1
 			return;
 
-		enOrden(nodo->left);
-		procesar(nodo->dato);
-		enOrden(nodo->right);
-	}
+		enOrden(nodo->left);//1(n)
+		procesar(nodo->dato);//1(n)
+		enOrden(nodo->right);//1(n)
+	}//Valoración O(n)
 
 	void preOrden(NodoArbol<T>* nodo)
 	{

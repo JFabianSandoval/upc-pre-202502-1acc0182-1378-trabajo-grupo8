@@ -158,8 +158,7 @@ public:
 		}
 		_balanceo(nodo);
 		return true;
-	}
-
+	}//Valoracion O(log n), porque el arbol se mantiene balanceado, la altura es log n y se hacen operaciones en cada nivel, por eso O(log n).
 	bool buscarNodo(NodoArbol<T>*& nodo, T datoBuscado)
 	{
 		if (nodo == nullptr)

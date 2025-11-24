@@ -29,12 +29,12 @@ public:
         tabla[idx].push_back(valor);
     }
 
-    T buscar(function<bool(T)> criterio) {
-        for (int i = 0; i < capacidad; i++) {
-            for (T valor : tabla[i]) {
-                if (criterio(valor)) return valor;
+    T buscar(function<bool(T)> criterio) {//1
+        for (int i = 0; i < capacidad; i++) {//1+n(adentro)+1 => n²
+            for (T valor : tabla[i]) {//1 + n (adentro)+1 => n
+                if (criterio(valor)) return valor;//1
             }
         }
-        return nullptr;
-    }
+        return nullptr;//1
+    }//Valoración O(n²)
 };

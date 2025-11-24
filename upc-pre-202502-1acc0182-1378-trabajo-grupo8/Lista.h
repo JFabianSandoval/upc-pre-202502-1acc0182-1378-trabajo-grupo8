@@ -33,19 +33,20 @@ public:
     }
 
     void insertarFinal(T dato) {
-        Nodo<T>* nuevo = new Nodo<T>(dato);
+        Nodo<T>* nuevo = new Nodo<T>(dato); //1
 
-        if (inicio == nullptr) {
-            inicio = nuevo;
+        if (inicio == nullptr) {//1
+            inicio = nuevo;//1
         }
         else {
-            Nodo<T>* aux = inicio;
-            while (aux->siguiente != nullptr)
-                aux = aux->siguiente;
-            aux->siguiente = nuevo;
+            Nodo<T>* aux = inicio;//1
+            while (aux->siguiente != nullptr)//n(adentro)
+                aux = aux->siguiente;// 1
+            aux->siguiente = nuevo;//1
+            //adentro =1
         }
-        tam++;
-    }
+        tam++;//1
+    }//Valoración O(n)
 
     bool eliminar(function<bool(T)> criterio) {
         if (inicio == nullptr) return false;

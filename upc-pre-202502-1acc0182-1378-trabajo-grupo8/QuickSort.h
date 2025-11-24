@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 #include <iostream>
 using namespace std;
 
@@ -58,4 +58,3 @@ void pruebaQuickSort()
     for (int i = 0; i < n; i++) cout << numeros[i] << " ";
     cout << endl;
 }
-*/

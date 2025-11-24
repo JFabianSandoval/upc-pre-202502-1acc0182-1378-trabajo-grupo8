@@ -135,32 +135,27 @@ public:
 
 	bool insertarNodo(NodoArbol<T>*& nodo, T nuevoDato, NodoArbol<T>* padre)
 	{
-		if (nodo == nullptr) //si el árbol está vacío
+		if (nodo == nullptr)
 		{
 			NodoArbol<T>* nuevoNodo = crearNodo(nuevoDato, padre);
 			nodo = nuevoNodo;
 			return true;
 		}
-		else //si el árbol no está vacío
+		else
 		{
 			if (nodo->dato == nuevoDato)
 				return false;
-
 			int resultado = comparador(nuevoDato, nodo->dato);
-
-			if (resultado == 0)//si son el mismo valor
+			if (resultado == 0)
 			{
-				insertarNodo(nodo->left, nuevoDato, nodo); //va a la left
-			}
-			if (resultado < 0) //si el resultado es negativo, nuevoDato es menor
 				insertarNodo(nodo->left, nuevoDato, nodo);
-			else //si el resultado es positivo, nuevoDato es mayor
+			}
+			if (resultado < 0)
+				insertarNodo(nodo->left, nuevoDato, nodo);
+			else
 				insertarNodo(nodo->right, nuevoDato, nodo);
-			//Si los datos son iguales deberia actuar una lista, implementala en struct Nodo
-
 			_balanceo(nodo);
 		}
-
 		_balanceo(nodo);
 		return true;
 	}

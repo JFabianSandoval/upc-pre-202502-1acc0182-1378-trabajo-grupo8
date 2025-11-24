@@ -14,7 +14,7 @@ private:
 
 public:
     Lista<Post*> posts;          // posts del usuario
-    Lista<Comentario*> comentarios; // comentarios en mis posts
+    Lista<Comentario*> comentarios; // comentarios de mis posts
 
     Usuario(string username, string password) {
         this->username = username;

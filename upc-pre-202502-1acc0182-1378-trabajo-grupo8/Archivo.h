@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 #include "Usuario.h"
-#include "ListaDoble.h"
+#include "Lista.h"
 
 using namespace std;
 

@@ -1,85 +1,152 @@
 ﻿#pragma once
-#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
 #include "Usuario.h"
-#include "ListaSimple.h"
+#include "Lista.h"
+
 using namespace std;
 
 template <class T>
 class Archivo {
 private:
-    string ruta = "Usuarios.txt";
+    string ufile = "Usuarios.txt";
+    string pfile = "Posts.txt";
+    string cfile = "Comentarios.txt";
+    string afile = "Amigos.txt";
 
 public:
-    // ✅ Crear archivo inicial con usuarios demo
-    void crearArchivoInicial() {
-        ifstream test(ruta);
-        if (test.good()) return; // ya existe
 
-        ofstream out(ruta, ios::out);
-        if (!out.is_open()) {
-            cout << "Error al crear archivo inicial.\n";
-            return;
-        }
-
-        // formato: id|nombre|correo|contrasenia|seguidores
-        out << "1001|Camila|cami@prueba.com|cami123|\n";
-        out << "1002|Sergio|sergio@prueba.com|sergio123|\n";
-        out << "1003|Fabian|fabian@prueba.com|fabian123|\n";
-        out.close();
-    }
-
-    // ✅ Cargar usuarios en lista simple
-    void cargarUsuarios(ListaSimple<Usuario<T>>& listaUsuarios) {
-        ifstream in(ruta);
+    // ===============================
+    // CARGAR USUARIOS
+    // ===============================
+    void cargarUsuarios(ListaDoble<Usuario<T>>& lista) {
+        ifstream in(ufile);
         if (!in.is_open()) {
-            cout << "No se pudo abrir " << ruta << endl;
+            cout << "No se pudo abrir Usuarios.txt\n";
             return;
         }
 
         string linea;
         while (getline(in, linea)) {
             if (linea.empty()) continue;
+
             stringstream ss(linea);
-            string sid, nombre, correo, pass, seguidores;
+            string sid, nom, mail, pass;
 
             getline(ss, sid, '|');
-            getline(ss, nombre, '|');
-            getline(ss, correo, '|');
+            getline(ss, nom, '|');
+            getline(ss, mail, '|');
             getline(ss, pass, '|');
-            getline(ss, seguidores, '|');
 
             Usuario<T> u;
             u.establecerId(stoi(sid));
-            u.establecerNombres(nombre);
-            u.establecercorreo(correo);
+            u.establecerNombres(nom);
+            u.establecercorreo(mail);
             u.establecerContrasenia(pass);
 
-            listaUsuarios.InsertarAlFinal(u);
+            lista.InsertarAlFinal(u);
         }
         in.close();
     }
 
-    // ✅ Guardar lista actualizada (sobrescribe el TXT)
-    void guardarUsuarios(ListaSimple<Usuario<T>>& listaUsuarios) {
-        ofstream out(ruta, ios::trunc);
-        if (!out.is_open()) {
-            cout << "Error al guardar archivo.\n";
+    // ===============================
+    // CARGAR POSTS
+    // ===============================
+    void cargarPosts(ListaDoble<Usuario<T>>& lista) {
+        ifstream in(pfile);
+        if (!in.is_open()) {
+            cout << "No se pudo abrir Posts.txt\n";
             return;
         }
 
-        Nodo<Usuario<T>>* actual = listaUsuarios.GetCabeza();
-        while (actual != nullptr) {
-            Usuario<T> u = actual->GetDato();
-            out << u.obtenerId() << "|"
-                << u.obtenerNombres() << "|"
-                << u.obtenercorreo() << "|"
-                << u.obtenerContrasenia() << "|\n";
-            actual = actual->GetSiguiente();
+        string linea;
+        while (getline(in, linea)) {
+            if (linea.empty()) continue;
+
+            stringstream ss(linea);
+            string sid, contenido;
+
+            getline(ss, sid, '|');
+            getline(ss, contenido, '|');
+
+            int id = stoi(sid);
+
+            NodoDoble<Usuario<T>>* usr = lista.GetCabeza();
+            while (usr != nullptr) {
+                if (usr->GetDato().obtenerId() == id) {
+                    usr->GetDato().posts.InsertarAlFinal(Post(contenido));
+                    break;
+                }
+                usr = usr->GetSiguiente();
+            }
+        }
+        in.close();
+    }
+
+    // ===============================
+    // CARGAR COMENTARIOS
+    // ===============================
+    void cargarComentarios(ListaDoble<Usuario<T>>& lista) {
+        ifstream in(cfile);
+        if (!in.is_open()) {
+            cout << "No se pudo abrir Comentarios.txt\n";
+            return;
         }
 
-        out.close();
+        string linea;
+        while (getline(in, linea)) {
+            if (linea.empty()) continue;
+
+            stringstream ss(linea);
+            string sid, contenido;
+
+            getline(ss, sid, '|');
+            getline(ss, contenido, '|');
+
+            int id = stoi(sid);
+
+            NodoDoble<Usuario<T>>* usr = lista.GetCabeza();
+            while (usr != nullptr) {
+                if (usr->GetDato().obtenerId() == id) {
+                    usr->GetDato().comentarios.InsertarAlFinal(Comentario(contenido));
+                    break;
+                }
+                usr = usr->GetSiguiente();
+            }
+        }
+        in.close();
+    }
+
+    // ===============================
+    // CARGAR AMIGOS POR NOMBRE
+    // ===============================
+    void cargarAmigos(ListaDoble<Usuario<T>>& lista) {
+        ifstream in(afile);
+        if (!in.is_open()) {
+            cout << "No se pudo abrir Amigos.txt\n";
+            return;
+        }
+
+        string linea;
+        while (getline(in, linea)) {
+            if (linea.empty()) continue;
+
+            stringstream ss(linea);
+            string nomUsuario, nomAmigo;
+
+            getline(ss, nomUsuario, '|');
+            getline(ss, nomAmigo);
+
+            NodoDoble<Usuario<T>>* usr = lista.GetCabeza();
+            while (usr != nullptr) {
+                if (usr->GetDato().obtenerNombres() == nomUsuario) {
+                    usr->GetDato().amigos.InsertarAlFinal(nomAmigo);
+                    break;
+                }
+                usr = usr->GetSiguiente();
+            }
+        }
+        in.close();
     }
 };

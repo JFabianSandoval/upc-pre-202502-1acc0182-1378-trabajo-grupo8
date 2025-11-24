@@ -1,38 +1,13 @@
 #pragma once
-#include <iostream>
-using namespace std;
 
-template <class N>
-class Nodo
-{
-private:
-    N dato;
-    Nodo<N>* siguiente;
-
+template <class T>
+class Nodo {
 public:
-    Nodo()
-    {
-        siguiente = nullptr;
-    }
-    Nodo(N valor)
-    {
-        dato = valor;
-        siguiente = nullptr;
-    }
-    N GetDato()
-    {
-        return dato;
-    }
-    void SetDato(N valor)
-    {
-        dato = valor;
-    }
-    Nodo<N>* GetSiguiente()
-    {
-        return siguiente;
-    }
-    void SetSiguiente(Nodo<N>* nodo)
-    {
-        siguiente = nodo;
+    T dato;
+    Nodo<T>* siguiente;
+
+    Nodo(T dato) {
+        this->dato = dato;
+        this->siguiente = nullptr;
     }
 };

@@ -48,7 +48,7 @@ void pruebaCompletaDelSistema() {
     // 5. Pruebas de búsqueda binaria
     cout << "\n[5/6] Realizando búsquedas binarias...\n";
 
-    // Buscar el primer amigo (debe estar)
+    // Buscar el primer amigo
     Usuario* user = sistema.getUsuarioActual();
     string primerAmigo;
     user->amigos.recorrer([&](string amigo) {
@@ -73,7 +73,7 @@ void pruebaCompletaDelSistema() {
     cout << "\nAgregando comentarios (se detectarán colisiones >= 4)...\n";
     for (int i = 1; i <= 10; i++) {
         string texto = "Comentario #" + to_string(i);
-        sistema.comentarPost(1, texto, "2025-01-23");  // Todos al mismo post
+        sistema.comentarPost(1, texto, "2025-01-23"); 
     }
 
     // Mostrar comentarios del post
@@ -116,7 +116,7 @@ int main() {
 
         case 2: {
             cout << "\nCargando usuarios...\n";
-            MenuIG menu;  // ⭐ Ahora carga automáticamente en el constructor
+            MenuIG menu; 
             menu.inicio();
             break;
         }

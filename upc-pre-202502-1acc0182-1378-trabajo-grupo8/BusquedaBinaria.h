@@ -5,7 +5,7 @@ using namespace std;
 
 class BusquedaBinaria {
 public:
-    // ⭐ Búsqueda binaria recursiva en array de strings
+    //Búsqueda binaria recursiva en array de strings
     static int buscar(string arr[], int inicio, int fin, string objetivo) {
         if (inicio > fin) {
             return -1; // No encontrado
@@ -25,7 +25,7 @@ public:
         }
     }
 
-    // ⭐ Búsqueda binaria iterativa (alternativa)
+    //Búsqueda binaria iterativa
     static int buscarIterativo(string arr[], int n, string objetivo) {
         int inicio = 0;
         int fin = n - 1;

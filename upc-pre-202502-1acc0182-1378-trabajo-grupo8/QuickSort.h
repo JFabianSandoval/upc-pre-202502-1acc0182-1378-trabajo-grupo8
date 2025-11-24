@@ -45,7 +45,6 @@ void quicksort(T arr[], int inicio, int fin)
     }
 }
 
-// ⭐ NUEVO: QuickSort específico para strings (sobrecarga)
 void quicksortStrings(string arr[], int inicio, int fin) {
     quicksort(arr, inicio, fin);
 }
@@ -65,7 +64,6 @@ void pruebaQuickSort()
     cout << endl;
 }
 
-// ⭐ NUEVO: Prueba con strings
 void pruebaQuickSortStrings() {
     string nombres[] = { "Zara", "Ana", "Miguel", "Carlos", "Beatriz" };
     int n = 5;

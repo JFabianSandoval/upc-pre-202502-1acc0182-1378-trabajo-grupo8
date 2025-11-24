@@ -17,13 +17,13 @@ using namespace std;
 
 class ControladoraIG {
 private:
-    Lista<Usuario*> listaUsuarios;  // ⭐ NUEVO: Lista de todos los usuarios
-    HashTable<Comentario*> hashComentarios;  // ⭐ NUEVO: HashTable para comentarios por ID de post
+    Lista<Usuario*> listaUsuarios;  //Lista de todos los usuarios
+    HashTable<Comentario*> hashComentarios;  // HashTable para comentarios por ID post
     Lista<Post*> posts;
     Grafo amigos;
     Usuario* usuarioActual = nullptr;
 
-    // ⭐ NUEVO: Array para búsqueda binaria de amigos
+    // Array para búsqueda binaria de amigos
     string* amigosOrdenados = nullptr;
     int cantidadAmigosArray = 0;
 
@@ -32,7 +32,7 @@ public:
         srand(time(0));
     }
 
-    // ⭐ NUEVO: Cargar usuarios desde archivo a lista
+    //Cargar usuarios desde archivo a lista
     void cargarUsuariosDesdeArchivo() {
         ifstream file("Usuarios.txt");
         if (!file.is_open()) {
@@ -67,7 +67,7 @@ public:
         cout << "\n✓ " << contador << " usuarios cargados en memoria (Lista)\n";
     }
 
-    // ⭐ NUEVO: Asignar 1000 amigos aleatorios al primer usuario
+    // Asignar 1000 amigos aleatorios al primer usuario
     void asignarAmigosAleatorios() {
         if (listaUsuarios.longitud() < 1000) {
             cout << "Error: Se necesitan al menos 1000 usuarios en el sistema\n";
@@ -87,7 +87,7 @@ public:
             return;
         }
 
-        // Crear array temporal con todos los usuarios excepto user1
+        // Crear arreglo temporal con todos los usuarios excepto user1
         string* todosUsuarios = new string[listaUsuarios.longitud() - 1];
         int indice = 0;
 
@@ -116,7 +116,7 @@ public:
         cout << "✓ Se asignaron " << amigosAgregados << " amigos aleatorios a user1\n";
     }
 
-    // ⭐ NUEVO: Preparar array ordenado de amigos para búsqueda binaria
+    // Preparar arreglo ordenado de amigos para búsqueda binaria
     void prepararBusquedaBinariaAmigos() {
         if (usuarioActual == nullptr) {
             cout << "Error: No hay usuario actual\n";
@@ -144,7 +144,7 @@ public:
         cout << "✓ Amigos ordenados alfabéticamente\n";
     }
 
-    // ⭐ NUEVO: Buscar amigo usando búsqueda binaria
+    //Buscar amigo usando búsqueda binaria
     bool buscarAmigoBinario(string nombreAmigo) {
         if (amigosOrdenados == nullptr) {
             cout << "Error: Primero debes preparar la búsqueda binaria\n";
@@ -163,7 +163,7 @@ public:
         }
     }
 
-    // ⭐ NUEVO: Mostrar primeros N amigos ordenados
+    //Mostrar primeros N amigos ordenados
     void mostrarAmigosOrdenados(int cantidad = 20) {
         if (amigosOrdenados == nullptr) {
             cout << "Error: Primero debes preparar la búsqueda binaria\n";
@@ -177,7 +177,7 @@ public:
         cout << "==========================================\n";
     }
 
-    // ================= LOGIN =====================
+    // LOGIN 
     bool login(string username, string password) {
         bool encontrado = false;
 
@@ -200,7 +200,7 @@ public:
 
     Usuario* getUsuarioActual() { return usuarioActual; }
 
-    // ================= POSTS =====================
+    // POSTS 
     void publicarPost(string contenido, string fecha) {
         if (usuarioActual == nullptr) return;
 
@@ -246,13 +246,13 @@ public:
         return usuarioActual->posts.eliminar([&](Post* p) { return p->getId() == id; });
     }
 
-    // ================= COMENTARIOS CON HASHTABLE =====================
+    // COMENTARIOS CON HASHTABLE 
     void comentarPost(int idPost, string texto, string fecha) {
         if (usuarioActual == nullptr) return;
 
         Comentario* c = new Comentario(idPost, usuarioActual->getUsername(), texto, fecha);
 
-        // ⭐ NUEVO: Insertar en HashTable usando idPost como clave
+        //Insertar en HashTable usando idPost como clave
         string clave = to_string(idPost);
         hashComentarios.insertar(clave, c);
 
@@ -266,7 +266,7 @@ public:
         file.close();
     }
 
-    // ⭐ NUEVO: Mostrar comentarios de un post desde HashTable
+    //  Mostrar comentarios de un post desde HashTable
     void mostrarComentariosDePost(int idPost) {
         cout << "\n===== COMENTARIOS DEL POST #" << idPost << " =====\n";
 
@@ -285,12 +285,12 @@ public:
         cout << "==========================================\n";
     }
 
-    // ⭐ NUEVO: Mostrar estadísticas de HashTable
+    // Mostrar estadísticas de HashTable
     void mostrarEstadisticasComentarios() {
         hashComentarios.mostrarEstadisticas();
     }
 
-    // ================= AMIGOS =====================
+    // AMIGOS 
     void agregarAmigo(string amigo) {
         if (usuarioActual == nullptr) return;
 
@@ -311,7 +311,7 @@ public:
         cout << "======================\n";
     }
 
-    // ⭐ NUEVO: Liberar memoria
+	// Liberar memoria
     ~ControladoraIG() {
         if (amigosOrdenados != nullptr) {
             delete[] amigosOrdenados;

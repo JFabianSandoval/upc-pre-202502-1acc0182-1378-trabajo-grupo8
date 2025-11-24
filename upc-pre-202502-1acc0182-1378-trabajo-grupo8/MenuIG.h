@@ -8,7 +8,7 @@ private:
     ControladoraIG sistema;
 
 public:
-    // ⭐ CAMBIO: Cargar usuarios al iniciar
+
     MenuIG() {
         sistema.cargarUsuariosDesdeArchivo();
     }

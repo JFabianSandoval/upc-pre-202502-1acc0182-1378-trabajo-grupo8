@@ -9,7 +9,7 @@ using namespace std;
 template <class T>
 class HashTable {
 private:
-    vector<Lista<T>*> tabla;  // ⭐ CAMBIO: Ahora usa Lista en lugar de vector
+    vector<Lista<T>*> tabla;  // Ahora usa Lista en lugar de vector
     int capacidad;
     int colisionesReportadas = 0;
 
@@ -30,7 +30,7 @@ public:
         }
     }
 
-    // ⭐ NUEVO: Insertar con detección de colisiones a partir de 4 elementos
+    // Insertar con detección de colisiones a partir de 4 elementos
     void insertar(string clave, T valor) {
         int idx = hashFunction(clave);
 
@@ -44,7 +44,7 @@ public:
         tabla[idx]->insertarFinal(valor);
     }
 
-    // ⭐ NUEVO: Buscar en la tabla hash
+    //Buscar en la tabla hash
     T buscar(function<bool(T)> criterio) {
         for (int i = 0; i < capacidad; i++) {
             T resultado = tabla[i]->buscar(criterio);
@@ -54,13 +54,13 @@ public:
         return nullptr;
     }
 
-    // ⭐ NUEVO: Obtener todos los elementos de una clave (idPost)
+    //Obtener todos los elementos de una clave (idPost)
     Lista<T>* obtenerPorClave(string clave) {
         int idx = hashFunction(clave);
         return tabla[i];
     }
 
-    // ⭐ NUEVO: Mostrar estadísticas de colisiones
+    // Mostrar estadísticas de colisiones
     void mostrarEstadisticas() {
         cout << "\n===== ESTADÍSTICAS HASHTABLE =====\n";
         cout << "Capacidad: " << capacidad << endl;

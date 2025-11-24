@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include "ControladoraIG.h"
 using namespace std;
@@ -8,17 +8,21 @@ private:
     ControladoraIG sistema;
 
 public:
+    // ⭐ CAMBIO: Cargar usuarios al iniciar
+    MenuIG() {
+        sistema.cargarUsuariosDesdeArchivo();
+    }
+
     void inicio() {
         string user, pass;
 
-        cout << "===== LOGIN =====\n";
+        cout << "\n===== LOGIN =====\n";
         cout << "Usuario: ";
         cin >> user;
         cout << "Password: ";
         cin >> pass;
 
         if (!sistema.login(user, pass)) {
-            cout << "Credenciales incorrectas.\n";
             return;
         }
 
@@ -29,7 +33,7 @@ public:
         int opc;
 
         do {
-            cout << "\n===== MENU USUARIO =====\n";
+            cout << "\n===== MENU =====\n";
             cout << "1. Publicar\n";
             cout << "2. Editar Post\n";
             cout << "3. Eliminar Post\n";
@@ -38,7 +42,7 @@ public:
             cout << "6. Agregar Amigo\n";
             cout << "7. Ver Amigos\n";
             cout << "8. Salir\n";
-            cout << "Opci�n: ";
+            cout << "Opcion: ";
             cin >> opc;
 
             switch (opc) {

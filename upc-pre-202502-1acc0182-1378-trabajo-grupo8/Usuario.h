@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include <string>
 #include "Lista.h"
@@ -15,6 +15,7 @@ private:
 public:
     Lista<Post*> posts;          // posts del usuario
     Lista<Comentario*> comentarios; // comentarios de mis posts
+    Lista<string> amigos;        // ⭐ NUEVO: Lista de amigos para búsqueda binaria
 
     Usuario(string username, string password) {
         this->username = username;
@@ -26,5 +27,15 @@ public:
 
     void mostrar() {
         cout << "Usuario: " << username << endl;
+    }
+
+    // ⭐ NUEVO: Agregar amigo a la lista
+    void agregarAmigo(string nombreAmigo) {
+        amigos.insertarFinal(nombreAmigo);
+    }
+
+    // ⭐ NUEVO: Obtener cantidad de amigos
+    int cantidadAmigos() {
+        return amigos.longitud();
     }
 };

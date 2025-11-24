@@ -118,12 +118,14 @@
     <ClInclude Include="ArbolAVL.h" />
     <ClInclude Include="ArbolBB.h" />
     <ClInclude Include="Archivo.h" />
+    <ClInclude Include="BusquedaBinaria.h" />
     <ClInclude Include="Cola.h" />
     <ClInclude Include="Comentario.h" />
     <ClInclude Include="Comparadores.h" />
     <ClInclude Include="ControladoraIG.h" />
     <ClInclude Include="Funciones_generales.h" />
     <ClInclude Include="GeneradorDataSetIG.h" />
+    <ClInclude Include="GeneradorUsuarios.h" />
     <ClInclude Include="Grafo.h" />
     <ClInclude Include="HashTable.h" />
     <ClInclude Include="Lista.h" />

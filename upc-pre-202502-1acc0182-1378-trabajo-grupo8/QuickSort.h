@@ -1,8 +1,9 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
+#include <string>
 using namespace std;
 
-// Funci�n para intercambiar dos elementos
+// Función para intercambiar dos elementos
 template <class T>
 void intercambiar(T& a, T& b)
 {
@@ -11,7 +12,7 @@ void intercambiar(T& a, T& b)
     b = temp;
 }
 
-// Funci�n de partici�n
+// Función de partición
 template <class T>
 int particion(T arr[], int inicio, int fin)
 {
@@ -30,7 +31,7 @@ int particion(T arr[], int inicio, int fin)
     return i + 1;
 }
 
-// Funci�n recursiva QuickSort
+// Función recursiva QuickSort
 template <class T>
 void quicksort(T arr[], int inicio, int fin)
 {
@@ -44,9 +45,14 @@ void quicksort(T arr[], int inicio, int fin)
     }
 }
 
+// ⭐ NUEVO: QuickSort específico para strings (sobrecarga)
+void quicksortStrings(string arr[], int inicio, int fin) {
+    quicksort(arr, inicio, fin);
+}
+
 void pruebaQuickSort()
 {
-    int numeros[] = {42, 5, 20, 7, 15, 3, 60};
+    int numeros[] = { 42, 5, 20, 7, 15, 3, 60 };
     int n = sizeof(numeros) / sizeof(numeros[0]);
 
     cout << "\nAntes de ordenar: ";
@@ -56,5 +62,20 @@ void pruebaQuickSort()
 
     cout << "\nDespues de ordenar: ";
     for (int i = 0; i < n; i++) cout << numeros[i] << " ";
+    cout << endl;
+}
+
+// ⭐ NUEVO: Prueba con strings
+void pruebaQuickSortStrings() {
+    string nombres[] = { "Zara", "Ana", "Miguel", "Carlos", "Beatriz" };
+    int n = 5;
+
+    cout << "\nAntes de ordenar: ";
+    for (int i = 0; i < n; i++) cout << nombres[i] << " ";
+
+    quicksortStrings(nombres, 0, n - 1);
+
+    cout << "\nDespues de ordenar: ";
+    for (int i = 0; i < n; i++) cout << nombres[i] << " ";
     cout << endl;
 }

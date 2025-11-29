@@ -66,7 +66,135 @@ public:
         file.close();
         cout << "\n✓ " << contador << " usuarios cargados en memoria (Lista)\n";
     }
+    // ============= CARGAR POSTS DESDE ARCHIVO =============
+    void cargarPostsDesdeArchivo() {
+        ifstream file("Posts.txt");
+        if (!file.is_open()) {
+            cout << "⚠️ No se pudo abrir Posts.txt (el archivo puede no existir aún)\n";
+            return;
+        }
 
+        string linea;
+        int contador = 0;
+
+        while (getline(file, linea)) {
+            if (linea.empty()) continue;
+
+            stringstream ss(linea);
+            string autor, idStr, contenido, fecha;
+
+            getline(ss, autor, '|');
+            getline(ss, idStr, '|');
+            getline(ss, contenido, '|');
+            getline(ss, fecha);
+
+            // Limpiar espacios y saltos de línea
+            while (!autor.empty() && (autor.back() == '\r' || autor.back() == '\n' || autor.back() == ' '))
+                autor.pop_back();
+            while (!fecha.empty() && (fecha.back() == '\r' || fecha.back() == '\n' || fecha.back() == ' '))
+                fecha.pop_back();
+
+            int id = stoi(idStr);
+
+            // Crear post y agregarlo a la lista global
+            Post* p = new Post(id, autor, contenido, fecha);
+            posts.insertarFinal(p);
+
+            // Buscar el usuario autor y agregar el post a su lista personal
+            listaUsuarios.recorrer([&](Usuario* u) {
+                if (u->getUsername() == autor) {
+                    u->posts.insertarFinal(p);
+                }
+                });
+
+            contador++;
+        }
+
+        file.close();
+        cout << "✓ " << contador << " posts cargados desde Posts.txt\n";
+    }
+
+    // ============= CARGAR COMENTARIOS DESDE ARCHIVO =============
+    void cargarComentariosDesdeArchivo() {
+        ifstream file("Comentarios.txt");
+        if (!file.is_open()) {
+            cout << "⚠️ No se pudo abrir Comentarios.txt (el archivo puede no existir aún)\n";
+            return;
+        }
+
+        string linea;
+        int contador = 0;
+
+        while (getline(file, linea)) {
+            if (linea.empty()) continue;
+
+            stringstream ss(linea);
+            string idPostStr, autor, texto, fecha;
+
+            getline(ss, idPostStr, '|');
+            getline(ss, autor, '|');
+            getline(ss, texto, '|');
+            getline(ss, fecha);
+
+            // Limpiar espacios
+            while (!autor.empty() && (autor.back() == '\r' || autor.back() == '\n' || autor.back() == ' '))
+                autor.pop_back();
+            while (!fecha.empty() && (fecha.back() == '\r' || fecha.back() == '\n' || fecha.back() == ' '))
+                fecha.pop_back();
+
+            int idPost = stoi(idPostStr);
+
+            // Crear comentario e insertar en HashTable
+            Comentario* c = new Comentario(idPost, autor, texto, fecha);
+            string clave = to_string(idPost);
+            hashComentarios.insertar(clave, c);
+
+            contador++;
+        }
+
+        file.close();
+        cout << "✓ " << contador << " comentarios cargados desde Comentarios.txt\n";
+    }
+
+    // ============= CARGAR AMIGOS DESDE ARCHIVO =============
+    void cargarAmigosDesdeArchivo() {
+        ifstream file("amigos.txt");
+        if (!file.is_open()) {
+            cout << "⚠️ No se pudo abrir Amigos.txt (el archivo puede no existir aún)\n";
+            return;
+        }
+
+        string linea;
+        int contador = 0;
+
+        while (getline(file, linea)) {
+            if (linea.empty()) continue;
+
+            stringstream ss(linea);
+            string usuario, amigo;
+
+            getline(ss, usuario, '|');
+            getline(ss, amigo);
+
+            // Limpiar espacios
+            while (!usuario.empty() && (usuario.back() == '\r' || usuario.back() == '\n' || usuario.back() == ' '))
+                usuario.pop_back();
+            while (!amigo.empty() && (amigo.back() == '\r' || amigo.back() == '\n' || amigo.back() == ' '))
+                amigo.pop_back();
+
+            // Buscar usuario y agregar amigo
+            listaUsuarios.recorrer([&](Usuario* u) {
+                if (u->getUsername() == usuario) {
+                    u->agregarAmigo(amigo);
+                }
+                });
+
+            contador++;
+        }
+
+        file.close();
+        cout << "✓ " << contador << " relaciones de amistad cargadas desde Amigos.txt\n";
+    }
     // Asignar 1000 amigos aleatorios al primer usuario
     void asignarAmigosAleatorios() {
         if (listaUsuarios.longitud() < 1000) {
@@ -241,23 +369,66 @@ public:
         return cambiado;
     }
 
+    void mostrarTodosLosPostsEnumerados() {
+        if (posts.longitud() == 0) {
+            cout << "\n⚠️ No hay posts en el sistema\n";
+            return;
+        }
+
+        cout << "\n╔═══════════════════════════════════════════╗\n";
+        cout << "║         TODOS LOS POSTS DEL SISTEMA       ║\n";
+        cout << "╚═══════════════════════════════════════════╝\n";
+
+        int contador = 1;
+        posts.recorrer([&](Post* p) {
+            cout << "\n[" << contador << "] ";
+            p->mostrar();
+            contador++;
+            });
+
+        cout << "\nTotal de posts: " << posts.longitud() << endl;
+    }
+
     bool eliminarPost(int id) {
         if (usuarioActual == nullptr) return false;
         return usuarioActual->posts.eliminar([&](Post* p) { return p->getId() == id; });
     }
 
     // COMENTARIOS CON HASHTABLE 
+// COMENTARIOS CON HASHTABLE 
     void comentarPost(int idPost, string texto, string fecha) {
         if (usuarioActual == nullptr) return;
 
+        // ⭐ NUEVO: Buscar y mostrar el post antes de comentar
+        Post* postEncontrado = nullptr;
+        posts.recorrer([&](Post* p) {
+            if (p->getId() == idPost) {
+                postEncontrado = p;
+            }
+            });
+
+        if (postEncontrado == nullptr) {
+            cout << "\n✗ Post #" << idPost << " no encontrado\n";
+            return;
+        }
+
+        // Mostrar el post
+        cout << "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+        cout << "Vas a comentar en este post:\n";
+        postEncontrado->mostrar();
+        cout << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+
+        // Crear y guardar comentario
         Comentario* c = new Comentario(idPost, usuarioActual->getUsername(), texto, fecha);
 
-        //Insertar en HashTable usando idPost como clave
         string clave = to_string(idPost);
         hashComentarios.insertar(clave, c);
 
         guardarComentario(c);
-        cout << "✓ Comentario agregado al post #" << idPost << "\n";
+        cout << "\n✓ Comentario agregado al post #" << idPost << "\n";
+
+        // ⭐ Mostrar comentarios actualizados
+        mostrarComentariosDePost(idPost);
     }
 
     void guardarComentario(Comentario* c) {
@@ -291,11 +462,18 @@ public:
     }
 
     // AMIGOS 
+
     void agregarAmigo(string amigo) {
         if (usuarioActual == nullptr) return;
 
         usuarioActual->agregarAmigo(amigo);
         amigos.agregarAmigo(usuarioActual->getUsername(), amigo);
+
+        // ⭐ NUEVO: Guardar en archivo
+        ofstream file("Amigos.txt", ios::app);
+        file << usuarioActual->getUsername() << "|" << amigo << "\n";
+        file.close();
+
         cout << "✓ Amigo \"" << amigo << "\" agregado\n";
     }
 
@@ -309,6 +487,136 @@ public:
             });
         cout << "Total: " << contador << " amigos\n";
         cout << "======================\n";
+    }
+    //Editar perfil
+    
+    // ============= RFU-09: EDITAR PERFIL =============
+    void editarPerfil(string nuevoUsername, string nuevoPassword) {
+        if (usuarioActual == nullptr) {
+            cout << "Error: No hay usuario actual\n";
+            return;
+        }
+
+        // Actualizar credenciales del usuario actual
+        usuarioActual->setUsername(nuevoUsername);
+        usuarioActual->setPassword(nuevoPassword);
+
+        cout << "\n✓ Perfil actualizado exitosamente\n";
+        cout << "  Nuevo usuario: " << nuevoUsername << endl;
+    }
+
+    // ============= RFU-11: BÚSQUEDA DE USUARIOS =============
+    Usuario* buscarUsuarioPorNombre(string username) {
+        Usuario* encontrado = nullptr;
+
+        listaUsuarios.recorrer([&](Usuario* u) {
+            if (u->getUsername() == username) {
+                encontrado = u;
+            }
+            });
+
+        return encontrado;
+    }
+
+    void buscarYMostrarUsuario(string username) {
+        cout << "\nBuscando usuario \"" << username << "\"...\n";
+
+        Usuario* user = buscarUsuarioPorNombre(username);
+
+        if (user != nullptr) {
+            cout << "\n✓ USUARIO ENCONTRADO:\n";
+            cout << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+            cout << " Username: " << user->getUsername() << endl;
+            cout << " Posts publicados: " << user->posts.longitud() << endl;
+            cout << " Amigos: " << user->cantidadAmigos() << endl;
+            cout << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+        }
+        else {
+            cout << "\n✗ Usuario \"" << username << "\" no encontrado\n";
+        }
+    }
+
+    // Búsqueda de posts por palabra clave
+    Lista<Post*> buscarPostsPorContenido(string palabraClave) {
+        Lista<Post*> resultados;
+
+        posts.recorrer([&](Post* p) {
+            // Convertir a minúsculas para búsqueda case-insensitive
+            string contenido = p->getContenido();
+            string palabra = palabraClave;
+
+            // Búsqueda simple (contiene la palabra)
+            if (contenido.find(palabra) != string::npos) {
+                resultados.insertarFinal(p);
+            }
+            });
+
+        return resultados;
+    }
+
+    void mostrarResultadosBusquedaPosts(string palabraClave) {
+        cout << "\nBuscando posts con: \"" << palabraClave << "\"...\n";
+
+        Lista<Post*> resultados = buscarPostsPorContenido(palabraClave);
+
+        cout << "\n===== RESULTADOS DE BÚSQUEDA =====\n";
+
+        if (resultados.longitud() == 0) {
+            cout << "No se encontraron posts con esa palabra.\n";
+        }
+        else {
+            cout << "✓ Se encontraron " << resultados.longitud() << " posts:\n";
+            resultados.recorrer([](Post* p) {
+                p->mostrar();
+                });
+        }
+        cout << "===================================\n";
+    }
+
+    // ============= RFU-014: ESTADÍSTICAS DEL SISTEMA =============
+    void mostrarEstadisticasGenerales() {
+        int totalUsuarios = listaUsuarios.longitud();
+        int totalPosts = posts.longitud();
+
+        // Contar total de comentarios
+        int totalComentarios = 0;
+        hashComentarios.buscar([&](Comentario* c) {
+            totalComentarios++;
+            return false; // Seguir contando todos
+            });
+
+        cout << "\n";
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║     ESTADÍSTICAS DEL SISTEMA               ║\n";
+        cout << "╠════════════════════════════════════════════╣\n";
+        cout << "║                                            ║\n";
+        cout << "║    DATOS GLOBALES:                       ║\n";
+        cout << "║  ├─   Usuarios registrados: " << totalUsuarios << endl;
+        cout << "║  ├─   Posts totales: " << totalPosts << endl;
+        cout << "║  └─   Comentarios totales: " << totalComentarios << endl;
+
+        if (usuarioActual) {
+            int misPostsCount = usuarioActual->posts.longitud();
+            int totalAmigos = usuarioActual->cantidadAmigos();
+
+            // Contar mis comentarios
+            int misComentarios = 0;
+            hashComentarios.buscar([&](Comentario* c) {
+                if (c->getAutor() == usuarioActual->getUsername()) {
+                    misComentarios++;
+                }
+                return false;
+                });
+
+            cout << "║                                            ║\n";
+            cout << "║    TUS ESTADÍSTICAS:                     ║\n";
+            cout << "║  ├─   Posts publicados: " << misPostsCount << endl;
+            cout << "║  ├─   Amigos: " << totalAmigos << endl;
+            cout << "║  └─   Comentarios realizados: " << misComentarios << endl;
+        }
+
+        cout << "║                                            ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
     }
 
 	// Liberar memoria

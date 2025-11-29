@@ -1,5 +1,3 @@
-1|ariana123|
-1|sofiaBonita|
-2|camiCute|
-2|lalo45|
-3|theQueen|
+user1|user2
+user1|user3
+user2|user1CamilaDelgado9993|jaimito123

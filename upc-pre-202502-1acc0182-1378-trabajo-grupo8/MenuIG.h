@@ -10,7 +10,16 @@ private:
 public:
 
     MenuIG() {
+        cout << "\n╔════════════════════════════════════════╗\n";
+        cout << "║    CARGANDO SISTEMA...                 ║\n";
+        cout << "╚════════════════════════════════════════╝\n";
+
         sistema.cargarUsuariosDesdeArchivo();
+        sistema.cargarPostsDesdeArchivo();
+        sistema.cargarComentariosDesdeArchivo();
+        sistema.cargarAmigosDesdeArchivo();
+
+        cout << "\n✓ Sistema cargado exitosamente\n";
     }
 
     void inicio() {
@@ -28,21 +37,29 @@ public:
 
         menuUsuario();
     }
-
     void menuUsuario() {
         int opc;
 
         do {
-            cout << "\n===== MENU =====\n";
-            cout << "1. Publicar\n";
-            cout << "2. Editar Post\n";
-            cout << "3. Eliminar Post\n";
-            cout << "4. Ver mis Posts\n";
-            cout << "5. Comentar Post\n";
-            cout << "6. Agregar Amigo\n";
-            cout << "7. Ver Amigos\n";
-            cout << "8. Salir\n";
-            cout << "Opcion: ";
+            cout << "\n╔═══════════════════════════════╗\n";
+            cout << "║         MENÚ PRINCIPAL        ║\n";
+            cout << "╠═══════════════════════════════╣\n";
+            cout << "║  1.  Publicar                 ║\n";
+            cout << "║  2.   Editar Post             ║\n";
+            cout << "║  3.   Eliminar Post           ║\n";
+            cout << "║  4.  Ver mis Posts            ║\n";
+            cout << "║  5.  Ver TODOS los Posts      ║\n";  // ⭐ NUEVO
+            cout << "║  6.  Comentar Post            ║\n";
+            cout << "║  7.   Ver Comentarios         ║\n";  // ⭐ NUEVO
+            cout << "║  8.  Agregar Amigo            ║\n";
+            cout << "║  9.  Ver Amigos               ║\n";
+            cout << "║ 10.  Buscar Usuario           ║\n";
+            cout << "║ 11.  Buscar Posts             ║\n";
+            cout << "║ 12.   Editar Perfil           ║\n";
+            cout << "║ 13.  Estadísticas             ║\n";
+            cout << "║ 14.  Salir                    ║\n";
+            cout << "╚═══════════════════════════════╝\n";
+            cout << "Opción: ";
             cin >> opc;
 
             switch (opc) {
@@ -59,16 +76,39 @@ public:
                 sistema.mostrarMisPosts();
                 break;
             case 5:
-                comentar();
+                sistema.mostrarTodosLosPostsEnumerados();  // ⭐ NUEVO
                 break;
             case 6:
-                agregarAmigo();
+                comentar();
                 break;
             case 7:
+                verComentariosDePost();  // ⭐ NUEVO
+                break;
+            case 8:
+                agregarAmigo();
+                break;
+            case 9:
                 sistema.mostrarAmigos();
                 break;
+            case 10:
+                buscarUsuario();
+                break;
+            case 11:
+                buscarPosts();
+                break;
+            case 12:
+                editarPerfil();
+                break;
+            case 13:
+                sistema.mostrarEstadisticasGenerales();
+                break;
+            case 14:
+                cout << "\n👋 ¡Hasta luego!\n";
+                break;
+            default:
+                cout << "\n✗ Opción inválida\n";
             }
-        } while (opc != 8);
+        } while (opc != 14);
     }
 
     void publicar() {
@@ -114,4 +154,44 @@ public:
         cin >> amigo;
         sistema.agregarAmigo(amigo);
     }
+    // ⭐ NUEVOS MÉTODOS PARA REQUISITOS FUNCIONALES
+
+    void buscarUsuario() {
+        string username;
+        cout << "\n===== BUSCAR USUARIO =====\n";
+        cout << "Nombre de usuario: ";
+        cin >> username;
+        sistema.buscarYMostrarUsuario(username);
+    }
+
+    void buscarPosts() {
+        string palabra;
+        cout << "\n===== BUSCAR POSTS =====\n";
+        cout << "Palabra clave: ";
+        cin.ignore();
+        getline(cin, palabra);
+        sistema.mostrarResultadosBusquedaPosts(palabra);
+    }
+
+    void editarPerfil() {
+        string nuevoUser, nuevoPass;
+        cout << "\n===== EDITAR PERFIL =====\n";
+        cout << "Nuevo username: ";
+        cin >> nuevoUser;
+        cout << "Nueva contraseña: ";
+        cin >> nuevoPass;
+        sistema.editarPerfil(nuevoUser, nuevoPass);
+
+        cout << "\n  NOTA: Los cambios se aplicarán en esta sesión.\n";
+        cout << "   Para persistir los cambios, se requiere actualizar Usuarios.txt\n";
+    }
+
+    void verComentariosDePost() {
+        int id;
+        cout << "\nID del Post: ";
+        cin >> id;
+        sistema.mostrarComentariosDePost(id);
+    }
+   
+
 };

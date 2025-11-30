@@ -350,10 +350,20 @@ public:
     void mostrarMisPosts() {
         if (usuarioActual == nullptr) return;
 
-        cout << "\n===== MIS POSTS =====\n";
-        usuarioActual->posts.recorrer([](Post* p) {
-            p->mostrar();
-            });
+        cout << "\n";
+        for (int i = 0; i < 30; i++) cout << "=";
+        cout << "\n       MIS POSTS\n";
+        for (int i = 0; i < 30; i++) cout << "=";
+        cout << "\n\n";
+
+        if (usuarioActual->posts.longitud() == 0) {
+            cout << "No tienes posts publicados\n";
+        }
+        else {
+            usuarioActual->posts.recorrer([](Post* p) {
+                p->mostrar();
+                });
+        }
     }
 
     bool editarPost(int idBuscar, string nuevoContenido) {
@@ -371,13 +381,19 @@ public:
 
     void mostrarTodosLosPostsEnumerados() {
         if (posts.longitud() == 0) {
-            cout << "\n⚠️ No hay posts en el sistema\n";
+            cout << "\nNo hay posts en el sistema\n";
             return;
         }
 
-        cout << "\n╔═══════════════════════════════════════════╗\n";
-        cout << "║         TODOS LOS POSTS DEL SISTEMA       ║\n";
-        cout << "╚═══════════════════════════════════════════╝\n";
+        cout << "\n" << char(201);
+        for (int i = 0; i < 50; i++) cout << char(205);
+        cout << char(187) << "\n";
+
+        cout << char(186) << "         TODOS LOS POSTS DEL SISTEMA           " << char(186) << "\n";
+
+        cout << char(200);
+        for (int i = 0; i < 50; i++) cout << char(205);
+        cout << char(188) << "\n";
 
         int contador = 1;
         posts.recorrer([&](Post* p) {
@@ -439,7 +455,11 @@ public:
 
     //  Mostrar comentarios de un post desde HashTable
     void mostrarComentariosDePost(int idPost) {
-        cout << "\n===== COMENTARIOS DEL POST #" << idPost << " =====\n";
+        cout << "\n";
+        for (int i = 0; i < 40; i++) cout << "=";
+        cout << "\n  COMENTARIOS DEL POST #" << idPost << "\n";
+        for (int i = 0; i < 40; i++) cout << "=";
+        cout << "\n\n";
 
         bool hayComentarios = false;
         hashComentarios.buscar([&](Comentario* c) {
@@ -447,13 +467,15 @@ public:
                 c->mostrar();
                 hayComentarios = true;
             }
-            return false;  // Seguir buscando todos
+            return false;
             });
 
         if (!hayComentarios) {
             cout << "No hay comentarios en este post.\n";
         }
-        cout << "==========================================\n";
+
+        for (int i = 0; i < 40; i++) cout << "=";
+        cout << "\n";
     }
 
     // Mostrar estadísticas de HashTable
@@ -480,13 +502,19 @@ public:
     void mostrarAmigos() {
         if (usuarioActual == nullptr) return;
 
-        cout << "\n===== MIS AMIGOS =====\n";
+        cout << "\n";
+        for (int i = 0; i < 30; i++) cout << "=";
+        cout << "\n       MIS AMIGOS\n";
+        for (int i = 0; i < 30; i++) cout << "=";
+        cout << "\n\n";
+
         int contador = 0;
         usuarioActual->amigos.recorrer([&](string a) {
             cout << ++contador << ". " << a << endl;
             });
-        cout << "Total: " << contador << " amigos\n";
-        cout << "======================\n";
+        cout << "\nTotal: " << contador << " amigos\n";
+        for (int i = 0; i < 30; i++) cout << "=";
+        cout << "\n";
     }
     //Editar perfil
     
@@ -578,28 +606,32 @@ public:
         int totalUsuarios = listaUsuarios.longitud();
         int totalPosts = posts.longitud();
 
-        // Contar total de comentarios
         int totalComentarios = 0;
         hashComentarios.buscar([&](Comentario* c) {
             totalComentarios++;
-            return false; // Seguir contando todos
+            return false;
             });
 
-        cout << "\n";
-        cout << "╔════════════════════════════════════════════╗\n";
-        cout << "║     ESTADÍSTICAS DEL SISTEMA               ║\n";
-        cout << "╠════════════════════════════════════════════╣\n";
-        cout << "║                                            ║\n";
-        cout << "║    DATOS GLOBALES:                       ║\n";
-        cout << "║  ├─   Usuarios registrados: " << totalUsuarios << endl;
-        cout << "║  ├─   Posts totales: " << totalPosts << endl;
-        cout << "║  └─   Comentarios totales: " << totalComentarios << endl;
+        cout << "\n" << char(201);
+        for (int i = 0; i < 50; i++) cout << char(205);
+        cout << char(187) << "\n";
+
+        cout << char(186) << "     ESTADISTICAS DEL SISTEMA                   " << char(186) << "\n";
+
+        cout << char(204);
+        for (int i = 0; i < 50; i++) cout << char(205);
+        cout << char(185) << "\n";
+
+        cout << char(186) << "                                                  " << char(186) << "\n";
+        cout << char(186) << "  DATOS GLOBALES:                                " << char(186) << "\n";
+        cout << char(186) << "  - Usuarios registrados: " << totalUsuarios << "                   " << char(186) << "\n";
+        cout << char(186) << "  - Posts totales: " << totalPosts << "                            " << char(186) << "\n";
+        cout << char(186) << "  - Comentarios totales: " << totalComentarios << "                      " << char(186) << "\n";
 
         if (usuarioActual) {
             int misPostsCount = usuarioActual->posts.longitud();
             int totalAmigos = usuarioActual->cantidadAmigos();
 
-            // Contar mis comentarios
             int misComentarios = 0;
             hashComentarios.buscar([&](Comentario* c) {
                 if (c->getAutor() == usuarioActual->getUsername()) {
@@ -608,17 +640,19 @@ public:
                 return false;
                 });
 
-            cout << "║                                            ║\n";
-            cout << "║    TUS ESTADÍSTICAS:                     ║\n";
-            cout << "║  ├─   Posts publicados: " << misPostsCount << endl;
-            cout << "║  ├─   Amigos: " << totalAmigos << endl;
-            cout << "║  └─   Comentarios realizados: " << misComentarios << endl;
+            cout << char(186) << "                                                  " << char(186) << "\n";
+            cout << char(186) << "  TUS ESTADISTICAS:                              " << char(186) << "\n";
+            cout << char(186) << "  - Posts publicados: " << misPostsCount << "                         " << char(186) << "\n";
+            cout << char(186) << "  - Amigos: " << totalAmigos << "                                    " << char(186) << "\n";
+            cout << char(186) << "  - Comentarios realizados: " << misComentarios << "                   " << char(186) << "\n";
         }
 
-        cout << "║                                            ║\n";
-        cout << "╚════════════════════════════════════════════╝\n";
-    }
+        cout << char(186) << "                                                  " << char(186) << "\n";
 
+        cout << char(200);
+        for (int i = 0; i < 50; i++) cout << char(205);
+        cout << char(188) << "\n";
+    }
 	// Liberar memoria
     ~ControladoraIG() {
         if (amigosOrdenados != nullptr) {

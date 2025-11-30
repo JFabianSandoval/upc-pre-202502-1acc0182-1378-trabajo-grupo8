@@ -1,3 +1,4 @@
 user1|user2
 user1|user3
-user2|user1CamilaDelgado9993|jaimito123
+user2|user1
+CamilaDelgado9993|jaimito123

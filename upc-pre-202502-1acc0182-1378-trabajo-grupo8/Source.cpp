@@ -18,15 +18,9 @@ void pausa() {
 void menuPrincipal() {
     setlocale(LC_ALL, "spanish");
 
-    cout << char(201);
-    for (int i = 0; i < 50; i++) cout << char(205);
-    cout << char(187) << "\n";
-
-    cout << char(186) << "    SIMULADOR DE RED SOCIAL - GRUPO 8        " << char(186) << "\n";
-
-    cout << char(200);
-    for (int i = 0; i < 50; i++) cout << char(205);
-    cout << char(188) << "\n\n";
+    cout << "+--------------------------------------------------+\n";
+    cout << "|    SIMULADOR DE RED SOCIAL - GRUPO 8            |\n";
+    cout << "+--------------------------------------------------+\n\n";
 
     cout << "1. Generar 10,000 usuarios (Usuarios.txt)\n";
     cout << "2. Iniciar sistema y login\n";
@@ -39,15 +33,9 @@ void pruebaCompletaDelSistema() {
     setlocale(LC_ALL, "spanish");
     limpiarPantalla();
 
-    cout << char(201);
-    for (int i = 0; i < 60; i++) cout << char(205);
-    cout << char(187) << "\n";
-
-    cout << char(186) << "  PRUEBA COMPLETA - ESTRUCTURAS DE DATOS                 " << char(186) << "\n";
-
-    cout << char(200);
-    for (int i = 0; i < 60; i++) cout << char(205);
-    cout << char(188) << "\n\n";
+    cout << "+------------------------------------------------------------+\n";
+    cout << "|  PRUEBA COMPLETA - ESTRUCTURAS DE DATOS                   |\n";
+    cout << "+------------------------------------------------------------+\n\n";
 
     ControladoraIG sistema;
 
@@ -102,21 +90,15 @@ void pruebaCompletaDelSistema() {
     sistema.mostrarEstadisticasComentarios();
 
     cout << "\n";
-    cout << char(201);
-    for (int i = 0; i < 60; i++) cout << char(205);
-    cout << char(187) << "\n";
-
-    cout << char(186) << "         PRUEBA COMPLETADA EXITOSAMENTE                  " << char(186) << "\n";
-    cout << char(186) << "                                                          " << char(186) << "\n";
-    cout << char(186) << "  [OK] Lista: 10,000 usuarios cargados                   " << char(186) << "\n";
-    cout << char(186) << "  [OK] Asignacion: 1000 amigos aleatorios                " << char(186) << "\n";
-    cout << char(186) << "  [OK] QuickSort: Amigos ordenados                       " << char(186) << "\n";
-    cout << char(186) << "  [OK] Busqueda Binaria: Funcionando                     " << char(186) << "\n";
-    cout << char(186) << "  [OK] HashTable: Colisiones detectadas                  " << char(186) << "\n";
-
-    cout << char(200);
-    for (int i = 0; i < 60; i++) cout << char(205);
-    cout << char(188) << "\n";
+    cout << "+------------------------------------------------------------+\n";
+    cout << "|         PRUEBA COMPLETADA EXITOSAMENTE                     |\n";
+    cout << "|                                                            |\n";
+    cout << "|  [OK] Lista: 10,000 usuarios cargados                     |\n";
+    cout << "|  [OK] Asignacion: 1000 amigos aleatorios                  |\n";
+    cout << "|  [OK] QuickSort: Amigos ordenados                         |\n";
+    cout << "|  [OK] Busqueda Binaria: Funcionando                       |\n";
+    cout << "|  [OK] HashTable: Colisiones detectadas                    |\n";
+    cout << "+------------------------------------------------------------+\n";
 
     pausa();
 }

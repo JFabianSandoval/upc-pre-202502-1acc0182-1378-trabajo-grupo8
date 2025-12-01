@@ -53,40 +53,19 @@ C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-gr
 C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(427,21): warning C4566: el carácter representado por el nombre de carácter universal '\u2717' no se puede representar en la página de códigos actual (1252)
   (compilando archivo de origen "Source.cpp")
   
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(432,17): warning C4566: el carácter representado por el nombre de carácter universal '\u2501' no se puede representar en la página de códigos actual (1252)
+C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(443,17): warning C4566: el carácter representado por el nombre de carácter universal '\u2713' no se puede representar en la página de códigos actual (1252)
   (compilando archivo de origen "Source.cpp")
   
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(435,17): warning C4566: el carácter representado por el nombre de carácter universal '\u2501' no se puede representar en la página de códigos actual (1252)
+C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(497,17): warning C4566: el carácter representado por el nombre de carácter universal '\u2713' no se puede representar en la página de códigos actual (1252)
   (compilando archivo de origen "Source.cpp")
   
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(444,17): warning C4566: el carácter representado por el nombre de carácter universal '\u2713' no se puede representar en la página de códigos actual (1252)
-  (compilando archivo de origen "Source.cpp")
-  
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(499,17): warning C4566: el carácter representado por el nombre de carácter universal '\u2713' no se puede representar en la página de códigos actual (1252)
-  (compilando archivo de origen "Source.cpp")
-  
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(532,17): warning C4566: el carácter representado por el nombre de carácter universal '\u2713' no se puede representar en la página de códigos actual (1252)
-  (compilando archivo de origen "Source.cpp")
-  
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(555,21): warning C4566: el carácter representado por el nombre de carácter universal '\u2713' no se puede representar en la página de códigos actual (1252)
-  (compilando archivo de origen "Source.cpp")
-  
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(556,21): warning C4566: el carácter representado por el nombre de carácter universal '\u2501' no se puede representar en la página de códigos actual (1252)
-  (compilando archivo de origen "Source.cpp")
-  
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(560,21): warning C4566: el carácter representado por el nombre de carácter universal '\u2501' no se puede representar en la página de códigos actual (1252)
-  (compilando archivo de origen "Source.cpp")
-  
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(563,21): warning C4566: el carácter representado por el nombre de carácter universal '\u2717' no se puede representar en la página de códigos actual (1252)
-  (compilando archivo de origen "Source.cpp")
-  
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(596,21): warning C4566: el carácter representado por el nombre de carácter universal '\u2713' no se puede representar en la página de códigos actual (1252)
+C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(527,17): warning C4566: el carácter representado por el nombre de carácter universal '\u2713' no se puede representar en la página de códigos actual (1252)
   (compilando archivo de origen "Source.cpp")
   
 C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\ControladoraIG.h(32,19): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   (compilando archivo de origen "Source.cpp")
   
-C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\MenuIG.h(28,22): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\MenuIG.h(27,22): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
   (compilando archivo de origen "Source.cpp")
   
 C:\Users\marie\OneDrive\Documents\GitHub\upc-pre-202502-1acc0182-1378-trabajo-grupo8\upc-pre-202502-1acc0182-1378-trabajo-grupo8\GeneradorUsuarios.h(77,17): warning C4566: el carácter representado por el nombre de carácter universal '\u2713' no se puede representar en la página de códigos actual (1252)

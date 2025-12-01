@@ -92,6 +92,7 @@ void menuPrincipal() {
     imprimirBanner();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     cout << "\n -------- MENU PRINCIPAL -------- \n";
     cout << " 1. Generar 10,000 usuarios (Usuarios.txt)\n";
     cout << " 2. Iniciar sistema y login\n";
@@ -103,6 +104,17 @@ void menuPrincipal() {
     cout << char(201);
     for (int i = 0; i < 50; i++) cout << char(205);
     cout << char(187) << "\n";
+=======
+    cout << char(201);
+    for (int i = 0; i < 50; i++) cout << char(205);
+    cout << char(187) << "\n";
+
+    cout << char(186) << "    SIMULADOR DE RED SOCIAL - GRUPO 8        " << char(186) << "\n";
+
+    cout << char(200);
+    for (int i = 0; i < 50; i++) cout << char(205);
+    cout << char(188) << "\n\n";
+>>>>>>> parent of e835b99 (menu listo)
 
     cout << char(186) << "    SIMULADOR DE RED SOCIAL - GRUPO 8        " << char(186) << "\n";
 
@@ -138,6 +150,9 @@ void pruebaCompletaDelSistema() {
     cout << char(200);
     for (int i = 0; i < 60; i++) cout << char(205);
     cout << char(188) << "\n\n";
+<<<<<<< HEAD
+>>>>>>> parent of e835b99 (menu listo)
+=======
 >>>>>>> parent of e835b99 (menu listo)
 
     ControladoraIG sistema;
@@ -208,6 +223,9 @@ void pruebaCompletaDelSistema() {
     cout << char(200);
     for (int i = 0; i < 60; i++) cout << char(205);
     cout << char(188) << "\n";
+<<<<<<< HEAD
+>>>>>>> parent of e835b99 (menu listo)
+=======
 >>>>>>> parent of e835b99 (menu listo)
 
     pausa();

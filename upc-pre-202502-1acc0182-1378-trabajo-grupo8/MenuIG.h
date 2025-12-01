@@ -1,8 +1,12 @@
 ﻿#pragma once
 #include <iostream>
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <cstdlib>
 #include <Windows.h>
+=======
+#include <cstdlib>  // Para system("cls")
+>>>>>>> parent of e835b99 (menu listo)
 =======
 #include <cstdlib>  // Para system("cls")
 >>>>>>> parent of e835b99 (menu listo)
@@ -36,6 +40,7 @@ private:
         cin.get();
     }
 
+<<<<<<< HEAD
     void imprimirLinea(char caracter, int longitud, string color = CYAN) {
         cout << color;
         for (int i = 0; i < longitud; i++) {
@@ -87,6 +92,13 @@ private:
         for (int i = 0; i < 50; i++) cout << char(205);  // ═
         cout << char(187) << "\n";  // ╗
 
+=======
+    void mostrarEncabezado(string titulo) {
+        cout << char(201);  // ╔
+        for (int i = 0; i < 50; i++) cout << char(205);  // ═
+        cout << char(187) << "\n";  // ╗
+
+>>>>>>> parent of e835b99 (menu listo)
         cout << char(186);  // ║
         int espacios = (50 - titulo.length()) / 2;
         for (int i = 0; i < espacios; i++) cout << " ";
@@ -97,6 +109,9 @@ private:
         cout << char(200);  // ╚
         for (int i = 0; i < 50; i++) cout << char(205);  // ═
         cout << char(188) << "\n\n";  // ╝
+<<<<<<< HEAD
+>>>>>>> parent of e835b99 (menu listo)
+=======
 >>>>>>> parent of e835b99 (menu listo)
     }
 
@@ -143,6 +158,7 @@ public:
         do {
             limpiarPantalla();
 <<<<<<< HEAD
+<<<<<<< HEAD
             mostrarEncabezado("MENU PRINCIPAL");
 
             cout << " 1. Publicar\n";
@@ -160,6 +176,8 @@ public:
             cout << "13. Estadisticas\n";
             cout << "14. Salir\n";
 =======
+=======
+>>>>>>> parent of e835b99 (menu listo)
             cout << char(201);
             for (int i = 0; i < 40; i++) cout << char(205);
             cout << char(187) << "\n";
@@ -188,6 +206,9 @@ public:
             cout << char(200);
             for (int i = 0; i < 40; i++) cout << char(205);
             cout << char(188) << "\n";
+<<<<<<< HEAD
+>>>>>>> parent of e835b99 (menu listo)
+=======
 >>>>>>> parent of e835b99 (menu listo)
 
             cout << "\nOpcion: ";

@@ -91,6 +91,7 @@ void menuPrincipal() {
     limpiarPantalla();
     imprimirBanner();
 
+<<<<<<< HEAD
     cout << "\n -------- MENU PRINCIPAL -------- \n";
     cout << " 1. Generar 10,000 usuarios (Usuarios.txt)\n";
     cout << " 2. Iniciar sistema y login\n";
@@ -98,6 +99,17 @@ void menuPrincipal() {
     cout << " 4. Salir\n";
     cout << "\n Selecciona una opcion: ";
 }
+=======
+    cout << char(201);
+    for (int i = 0; i < 50; i++) cout << char(205);
+    cout << char(187) << "\n";
+
+    cout << char(186) << "    SIMULADOR DE RED SOCIAL - GRUPO 8        " << char(186) << "\n";
+
+    cout << char(200);
+    for (int i = 0; i < 50; i++) cout << char(205);
+    cout << char(188) << "\n\n";
+>>>>>>> parent of e835b99 (menu listo)
 
 void mostrarExito(string mensaje) {
     cout << "\n OK: " << mensaje << "\n";
@@ -113,7 +125,20 @@ void mostrarInfo(string mensaje) {
 
 void pruebaCompletaDelSistema() {
     limpiarPantalla();
+<<<<<<< HEAD
     cout << "\n ---- PRUEBA COMPLETA DEL SISTEMA ---- \n";
+=======
+
+    cout << char(201);
+    for (int i = 0; i < 60; i++) cout << char(205);
+    cout << char(187) << "\n";
+
+    cout << char(186) << "  PRUEBA COMPLETA - ESTRUCTURAS DE DATOS                 " << char(186) << "\n";
+
+    cout << char(200);
+    for (int i = 0; i < 60; i++) cout << char(205);
+    cout << char(188) << "\n\n";
+>>>>>>> parent of e835b99 (menu listo)
 
     ControladoraIG sistema;
 
@@ -164,7 +189,26 @@ void pruebaCompletaDelSistema() {
     sistema.mostrarComentariosDePost(1);
     sistema.mostrarEstadisticasComentarios();
 
+<<<<<<< HEAD
     cout << "\n PRUEBA COMPLETADA CON EXITO \n";
+=======
+    cout << "\n";
+    cout << char(201);
+    for (int i = 0; i < 60; i++) cout << char(205);
+    cout << char(187) << "\n";
+
+    cout << char(186) << "         PRUEBA COMPLETADA EXITOSAMENTE                  " << char(186) << "\n";
+    cout << char(186) << "                                                          " << char(186) << "\n";
+    cout << char(186) << "  [OK] Lista: 10,000 usuarios cargados                   " << char(186) << "\n";
+    cout << char(186) << "  [OK] Asignacion: 1000 amigos aleatorios                " << char(186) << "\n";
+    cout << char(186) << "  [OK] QuickSort: Amigos ordenados                       " << char(186) << "\n";
+    cout << char(186) << "  [OK] Busqueda Binaria: Funcionando                     " << char(186) << "\n";
+    cout << char(186) << "  [OK] HashTable: Colisiones detectadas                  " << char(186) << "\n";
+
+    cout << char(200);
+    for (int i = 0; i < 60; i++) cout << char(205);
+    cout << char(188) << "\n";
+>>>>>>> parent of e835b99 (menu listo)
 
     pausa();
 }

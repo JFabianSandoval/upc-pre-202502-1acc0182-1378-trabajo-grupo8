@@ -1,7 +1,11 @@
 ﻿#pragma once
 #include <iostream>
+<<<<<<< HEAD
 #include <cstdlib>
 #include <Windows.h>
+=======
+#include <cstdlib>  // Para system("cls")
+>>>>>>> parent of e835b99 (menu listo)
 #include "ControladoraIG.h"
 using namespace std;
 
@@ -21,6 +25,7 @@ class MenuIG {
 private:
     ControladoraIG sistema;
 
+    // Funciones auxiliares para UI
     void limpiarPantalla() {
         system("cls");
     }
@@ -40,6 +45,7 @@ private:
     }
 
     void mostrarEncabezado(string titulo) {
+<<<<<<< HEAD
         int anchoTotal = 60;
         int espaciosTitulo = (anchoTotal - titulo.length() - 2) / 2;
 
@@ -76,6 +82,22 @@ private:
             cout.flush();
         }
         cout << RESET << "\n";
+=======
+        cout << char(201);  // ╔
+        for (int i = 0; i < 50; i++) cout << char(205);  // ═
+        cout << char(187) << "\n";  // ╗
+
+        cout << char(186);  // ║
+        int espacios = (50 - titulo.length()) / 2;
+        for (int i = 0; i < espacios; i++) cout << " ";
+        cout << titulo;
+        for (int i = 0; i < 50 - espacios - titulo.length(); i++) cout << " ";
+        cout << char(186) << "\n";  // ║
+
+        cout << char(200);  // ╚
+        for (int i = 0; i < 50; i++) cout << char(205);  // ═
+        cout << char(188) << "\n\n";  // ╝
+>>>>>>> parent of e835b99 (menu listo)
     }
 
 public:
@@ -120,6 +142,7 @@ public:
 
         do {
             limpiarPantalla();
+<<<<<<< HEAD
             mostrarEncabezado("MENU PRINCIPAL");
 
             cout << " 1. Publicar\n";
@@ -136,6 +159,36 @@ public:
             cout << "12. Editar Perfil\n";
             cout << "13. Estadisticas\n";
             cout << "14. Salir\n";
+=======
+            cout << char(201);
+            for (int i = 0; i < 40; i++) cout << char(205);
+            cout << char(187) << "\n";
+
+            cout << char(186) << "          MENU PRINCIPAL              " << char(186) << "\n";
+
+            cout << char(204);
+            for (int i = 0; i < 40; i++) cout << char(205);
+            cout << char(185) << "\n";
+
+            cout << char(186) << "  1. Publicar                        " << char(186) << "\n";
+            cout << char(186) << "  2. Editar Post                     " << char(186) << "\n";
+            cout << char(186) << "  3. Eliminar Post                   " << char(186) << "\n";
+            cout << char(186) << "  4. Ver mis Posts                   " << char(186) << "\n";
+            cout << char(186) << "  5. Ver TODOS los Posts             " << char(186) << "\n";
+            cout << char(186) << "  6. Comentar Post                   " << char(186) << "\n";
+            cout << char(186) << "  7. Ver Comentarios de Post         " << char(186) << "\n";
+            cout << char(186) << "  8. Agregar Amigo                   " << char(186) << "\n";
+            cout << char(186) << "  9. Ver Amigos                      " << char(186) << "\n";
+            cout << char(186) << " 10. Buscar Usuario                  " << char(186) << "\n";
+            cout << char(186) << " 11. Buscar Posts                    " << char(186) << "\n";
+            cout << char(186) << " 12. Editar Perfil                   " << char(186) << "\n";
+            cout << char(186) << " 13. Estadisticas                    " << char(186) << "\n";
+            cout << char(186) << " 14. Salir                           " << char(186) << "\n";
+
+            cout << char(200);
+            for (int i = 0; i < 40; i++) cout << char(205);
+            cout << char(188) << "\n";
+>>>>>>> parent of e835b99 (menu listo)
 
             cout << "\nOpcion: ";
             cin >> opc;

@@ -351,9 +351,9 @@ public:
         if (usuarioActual == nullptr) return;
 
         cout << "\n";
-        for (int i = 0; i < 40; i++) cout << "=";
+        for (int i = 0; i < 30; i++) cout << "=";
         cout << "\n       MIS POSTS\n";
-        for (int i = 0; i < 40; i++) cout << "=";
+        for (int i = 0; i < 30; i++) cout << "=";
         cout << "\n\n";
 
         if (usuarioActual->posts.longitud() == 0) {
@@ -385,15 +385,15 @@ public:
             return;
         }
 
-        cout << "\n+";
-        for (int i = 0; i < 50; i++) cout << "-";
-        cout << "+\n";
+        cout << "\n" << char(201);
+        for (int i = 0; i < 50; i++) cout << char(205);
+        cout << char(187) << "\n";
 
-        cout << "|         TODOS LOS POSTS DEL SISTEMA           |\n";
+        cout << char(186) << "         TODOS LOS POSTS DEL SISTEMA           " << char(186) << "\n";
 
-        cout << "+";
-        for (int i = 0; i < 50; i++) cout << "-";
-        cout << "+\n";
+        cout << char(200);
+        for (int i = 0; i < 50; i++) cout << char(205);
+        cout << char(188) << "\n";
 
         int contador = 1;
         posts.recorrer([&](Post* p) {
@@ -410,12 +410,12 @@ public:
         return usuarioActual->posts.eliminar([&](Post* p) { return p->getId() == id; });
     }
 
-
+    // COMENTARIOS CON HASHTABLE 
 // COMENTARIOS CON HASHTABLE 
     void comentarPost(int idPost, string texto, string fecha) {
         if (usuarioActual == nullptr) return;
 
-       
+        // ⭐ NUEVO: Buscar y mostrar el post antes de comentar
         Post* postEncontrado = nullptr;
         posts.recorrer([&](Post* p) {
             if (p->getId() == idPost) {
@@ -429,11 +429,12 @@ public:
         }
 
         // Mostrar el post
-        cout << "\n-----------------------------------\n";
+        cout << "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
         cout << "Vas a comentar en este post:\n";
         postEncontrado->mostrar();
-        cout << "-----------------------------------\\n";
+        cout << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
 
+        // Crear y guardar comentario
         Comentario* c = new Comentario(idPost, usuarioActual->getUsername(), texto, fecha);
 
         string clave = to_string(idPost);
@@ -442,6 +443,7 @@ public:
         guardarComentario(c);
         cout << "\n Comentario agregado al post #" << idPost << "\n";
 
+        // ⭐ Mostrar comentarios actualizados
         mostrarComentariosDePost(idPost);
     }
 
@@ -454,9 +456,9 @@ public:
     //  Mostrar comentarios de un post desde HashTable
     void mostrarComentariosDePost(int idPost) {
         cout << "\n";
-        for (int i = 0; i < 50; i++) cout << "=";
+        for (int i = 0; i < 40; i++) cout << "=";
         cout << "\n  COMENTARIOS DEL POST #" << idPost << "\n";
-        for (int i = 0; i < 50; i++) cout << "=";
+        for (int i = 0; i < 40; i++) cout << "=";
         cout << "\n\n";
 
         bool hayComentarios = false;
@@ -472,7 +474,7 @@ public:
             cout << "No hay comentarios en este post.\n";
         }
 
-        for (int i = 0; i < 50; i++) cout << "=";
+        for (int i = 0; i < 40; i++) cout << "=";
         cout << "\n";
     }
 
@@ -501,9 +503,9 @@ public:
         if (usuarioActual == nullptr) return;
 
         cout << "\n";
-        for (int i = 0; i < 40; i++) cout << "=";
+        for (int i = 0; i < 30; i++) cout << "=";
         cout << "\n       MIS AMIGOS\n";
-        for (int i = 0; i < 40; i++) cout << "=";
+        for (int i = 0; i < 30; i++) cout << "=";
         cout << "\n\n";
 
         int contador = 0;
@@ -511,16 +513,19 @@ public:
             cout << ++contador << ". " << a << endl;
             });
         cout << "\nTotal: " << contador << " amigos\n";
-        for (int i = 0; i < 40; i++) cout << "=";
+        for (int i = 0; i < 30; i++) cout << "=";
         cout << "\n";
     }
     //Editar perfil
     
+    // ============= RFU-09: EDITAR PERFIL =============
     void editarPerfil(string nuevoUsername, string nuevoPassword) {
         if (usuarioActual == nullptr) {
             cout << "Error: No hay usuario actual\n";
             return;
         }
+
+        // Actualizar credenciales del usuario actual
         usuarioActual->setUsername(nuevoUsername);
         usuarioActual->setPassword(nuevoPassword);
 
@@ -528,6 +533,7 @@ public:
         cout << "  Nuevo usuario: " << nuevoUsername << endl;
     }
 
+    // ============= RFU-11: BÚSQUEDA DE USUARIOS =============
     Usuario* buscarUsuarioPorNombre(string username) {
         Usuario* encontrado = nullptr;
 
@@ -546,23 +552,24 @@ public:
         Usuario* user = buscarUsuarioPorNombre(username);
 
         if (user != nullptr) {
-            cout << "\n[OK] USUARIO ENCONTRADO:\n";
-            cout << "----------------------------\n";
-            cout << "Username: " << user->getUsername() << endl;
-            cout << "Posts publicados: " << user->posts.longitud() << endl;
-            cout << "Amigos: " << user->cantidadAmigos() << endl;
-            cout << "----------------------------\n";
+            cout << "\n✓ USUARIO ENCONTRADO:\n";
+            cout << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+            cout << " Username: " << user->getUsername() << endl;
+            cout << " Posts publicados: " << user->posts.longitud() << endl;
+            cout << " Amigos: " << user->cantidadAmigos() << endl;
+            cout << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
         }
         else {
-            cout << "\n[ERROR] Usuario \"" << username << "\" no encontrado\n";
+            cout << "\n✗ Usuario \"" << username << "\" no encontrado\n";
         }
     }
 
+    // Búsqueda de posts por palabra clave
     Lista<Post*> buscarPostsPorContenido(string palabraClave) {
         Lista<Post*> resultados;
 
         posts.recorrer([&](Post* p) {
-           
+            // Convertir a minúsculas para búsqueda case-insensitive
             string contenido = p->getContenido();
             string palabra = palabraClave;
 
@@ -580,27 +587,21 @@ public:
 
         Lista<Post*> resultados = buscarPostsPorContenido(palabraClave);
 
-        cout << "\n";
-        for (int i = 0; i < 50; i++) cout << "=";
-        cout << "\n  RESULTADOS DE BUSQUEDA\n";
-        for (int i = 0; i < 50; i++) cout << "=";
-        cout << "\n\n";
+        cout << "\n===== RESULTADOS DE BÚSQUEDA =====\n";
 
         if (resultados.longitud() == 0) {
             cout << "No se encontraron posts con esa palabra.\n";
         }
         else {
-            cout << "[OK] Se encontraron " << resultados.longitud() << " posts:\n";
+            cout << "✓ Se encontraron " << resultados.longitud() << " posts:\n";
             resultados.recorrer([](Post* p) {
                 p->mostrar();
                 });
         }
-
-        for (int i = 0; i < 50; i++) cout << "=";
-        cout << "\n";
+        cout << "===================================\n";
     }
 
-   
+    // ============= RFU-014: ESTADÍSTICAS DEL SISTEMA =============
     void mostrarEstadisticasGenerales() {
         int totalUsuarios = listaUsuarios.longitud();
         int totalPosts = posts.longitud();
@@ -611,29 +612,21 @@ public:
             return false;
             });
 
-        cout << "\n+";
-        for (int i = 0; i < 52; i++) cout << "-";
-        cout << "+\n";
+        cout << "\n" << char(201);
+        for (int i = 0; i < 50; i++) cout << char(205);
+        cout << char(187) << "\n";
 
-        cout << "|     ESTADISTICAS DEL SISTEMA                     |\n";
+        cout << char(186) << "     ESTADISTICAS DEL SISTEMA                   " << char(186) << "\n";
 
-        cout << "+";
-        for (int i = 0; i < 52; i++) cout << "-";
-        cout << "+\n";
+        cout << char(204);
+        for (int i = 0; i < 50; i++) cout << char(205);
+        cout << char(185) << "\n";
 
-        cout << "|                                                  |\n";
-        cout << "|  DATOS GLOBALES:                                 |\n";
-        cout << "|  - Usuarios registrados: " << totalUsuarios;
-        for (int i = 0; i < 24; i++) cout << " ";
-        cout << "|\n";
-
-        cout << "|  - Posts totales: " << totalPosts;
-        for (int i = 0; i < 32; i++) cout << " ";
-        cout << "|\n";
-
-        cout << "|  - Comentarios totales: " << totalComentarios;
-        for (int i = 0; i < 28; i++) cout << " ";
-        cout << "|\n";
+        cout << char(186) << "                                                  " << char(186) << "\n";
+        cout << char(186) << "  DATOS GLOBALES:                                " << char(186) << "\n";
+        cout << char(186) << "  - Usuarios registrados: " << totalUsuarios << "                   " << char(186) << "\n";
+        cout << char(186) << "  - Posts totales: " << totalPosts << "                            " << char(186) << "\n";
+        cout << char(186) << "  - Comentarios totales: " << totalComentarios << "                      " << char(186) << "\n";
 
         if (usuarioActual) {
             int misPostsCount = usuarioActual->posts.longitud();
@@ -647,26 +640,18 @@ public:
                 return false;
                 });
 
-            cout << "|                                                  |\n";
-            cout << "|  TUS ESTADISTICAS:                               |\n";
-            cout << "|  - Posts publicados: " << misPostsCount;
-            for (int i = 0; i < 29; i++) cout << " ";
-            cout << "|\n";
-
-            cout << "|  - Amigos: " << totalAmigos;
-            for (int i = 0; i < 39; i++) cout << " ";
-            cout << "|\n";
-
-            cout << "|  - Comentarios realizados: " << misComentarios;
-            for (int i = 0; i < 24; i++) cout << " ";
-            cout << "|\n";
+            cout << char(186) << "                                                  " << char(186) << "\n";
+            cout << char(186) << "  TUS ESTADISTICAS:                              " << char(186) << "\n";
+            cout << char(186) << "  - Posts publicados: " << misPostsCount << "                         " << char(186) << "\n";
+            cout << char(186) << "  - Amigos: " << totalAmigos << "                                    " << char(186) << "\n";
+            cout << char(186) << "  - Comentarios realizados: " << misComentarios << "                   " << char(186) << "\n";
         }
 
-        cout << "|                                                  |\n";
+        cout << char(186) << "                                                  " << char(186) << "\n";
 
-        cout << "+";
-        for (int i = 0; i < 52; i++) cout << "-";
-        cout << "+\n";
+        cout << char(200);
+        for (int i = 0; i < 50; i++) cout << char(205);
+        cout << char(188) << "\n";
     }
 	// Liberar memoria
     ~ControladoraIG() {

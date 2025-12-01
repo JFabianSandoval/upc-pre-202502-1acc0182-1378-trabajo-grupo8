@@ -29,7 +29,7 @@ private:
 
 public:
     ControladoraIG() : hashComentarios(100) {
-        srand(time(0));
+        srand(time(NULL));
     }
 
     //Cargar usuarios desde archivo a lista
@@ -64,13 +64,13 @@ public:
         }
 
         file.close();
-        cout << "\n✓ " << contador << " usuarios cargados en memoria (Lista)\n";
+        cout << "\n " << contador << " usuarios cargados en memoria (Lista)\n";
     }
     // ============= CARGAR POSTS DESDE ARCHIVO =============
     void cargarPostsDesdeArchivo() {
         ifstream file("Posts.txt");
         if (!file.is_open()) {
-            cout << "⚠️ No se pudo abrir Posts.txt (el archivo puede no existir aún)\n";
+            cout << " No se pudo abrir Posts.txt (el archivo puede no existir aún)\n";
             return;
         }
 
@@ -111,14 +111,14 @@ public:
         }
 
         file.close();
-        cout << "✓ " << contador << " posts cargados desde Posts.txt\n";
+        cout << " " << contador << " posts cargados desde Posts.txt\n";
     }
 
     // ============= CARGAR COMENTARIOS DESDE ARCHIVO =============
     void cargarComentariosDesdeArchivo() {
         ifstream file("Comentarios.txt");
         if (!file.is_open()) {
-            cout << "⚠️ No se pudo abrir Comentarios.txt (el archivo puede no existir aún)\n";
+            cout << " No se pudo abrir Comentarios.txt (el archivo puede no existir aún)\n";
             return;
         }
 
@@ -153,14 +153,14 @@ public:
         }
 
         file.close();
-        cout << "✓ " << contador << " comentarios cargados desde Comentarios.txt\n";
+        cout << " " << contador << " comentarios cargados desde Comentarios.txt\n";
     }
 
     // ============= CARGAR AMIGOS DESDE ARCHIVO =============
     void cargarAmigosDesdeArchivo() {
         ifstream file("amigos.txt");
         if (!file.is_open()) {
-            cout << "⚠️ No se pudo abrir Amigos.txt (el archivo puede no existir aún)\n";
+            cout << " No se pudo abrir Amigos.txt (el archivo puede no existir aún)\n";
             return;
         }
 
@@ -193,7 +193,7 @@ public:
         }
 
         file.close();
-        cout << "✓ " << contador << " relaciones de amistad cargadas desde Amigos.txt\n";
+        cout << " " << contador << " relaciones de amistad cargadas desde Amigos.txt\n";
     }
     // Asignar 1000 amigos aleatorios al primer usuario
     void asignarAmigosAleatorios() {
@@ -241,7 +241,7 @@ public:
         delete[] todosUsuarios;
         delete[] seleccionados;
 
-        cout << "✓ Se asignaron " << amigosAgregados << " amigos aleatorios a user1\n";
+        cout << " Se asignaron " << amigosAgregados << " amigos aleatorios a user1\n";
     }
 
     // Preparar arreglo ordenado de amigos para búsqueda binaria
@@ -269,7 +269,7 @@ public:
         // Ordenar con QuickSort
         cout << "\nOrdenando " << cantidadAmigosArray << " amigos con QuickSort...\n";
         quicksortStrings(amigosOrdenados, 0, cantidadAmigosArray - 1);
-        cout << "✓ Amigos ordenados alfabéticamente\n";
+        cout << " Amigos ordenados alfabéticamente\n";
     }
 
     //Buscar amigo usando búsqueda binaria
@@ -282,11 +282,11 @@ public:
         int resultado = BusquedaBinaria::buscar(amigosOrdenados, 0, cantidadAmigosArray - 1, nombreAmigo);
 
         if (resultado != -1) {
-            cout << "\n✓ AMIGO ENCONTRADO: \"" << nombreAmigo << "\" en posición " << resultado << "\n";
+            cout << "\n AMIGO ENCONTRADO: \"" << nombreAmigo << "\" en posición " << resultado << "\n";
             return true;
         }
         else {
-            cout << "\n✗ Amigo \"" << nombreAmigo << "\" NO encontrado\n";
+            cout << "\n Amigo \"" << nombreAmigo << "\" NO encontrado\n";
             return false;
         }
     }
@@ -317,11 +317,11 @@ public:
             });
 
         if (encontrado) {
-            cout << "\n✓ Login exitoso: " << username << "\n";
+            cout << "\n Login exitoso: " << username << "\n";
             return true;
         }
         else {
-            cout << "\n✗ Usuario o contraseña incorrectos\n";
+            cout << "\n Usuario o contraseña incorrectos\n";
             return false;
         }
     }
@@ -338,7 +338,7 @@ public:
         usuarioActual->posts.insertarFinal(p);
 
         guardarPost(p);
-        cout << "✓ Post #" << id << " publicado\n";
+        cout << " Post #" << id << " publicado\n";
     }
 
     void guardarPost(Post* p) {
@@ -424,7 +424,7 @@ public:
             });
 
         if (postEncontrado == nullptr) {
-            cout << "\n✗ Post #" << idPost << " no encontrado\n";
+            cout << "\n Post #" << idPost << " no encontrado\n";
             return;
         }
 
@@ -440,7 +440,7 @@ public:
         hashComentarios.insertar(clave, c);
 
         guardarComentario(c);
-        cout << "\n✓ Comentario agregado al post #" << idPost << "\n";
+        cout << "\n Comentario agregado al post #" << idPost << "\n";
 
         mostrarComentariosDePost(idPost);
     }
@@ -494,7 +494,7 @@ public:
         file << usuarioActual->getUsername() << "|" << amigo << "\n";
         file.close();
 
-        cout << "✓ Amigo \"" << amigo << "\" agregado\n";
+        cout << " Amigo \"" << amigo << "\" agregado\n";
     }
 
     void mostrarAmigos() {
@@ -524,7 +524,7 @@ public:
         usuarioActual->setUsername(nuevoUsername);
         usuarioActual->setPassword(nuevoPassword);
 
-        cout << "\n✓ Perfil actualizado exitosamente\n";
+        cout << "\n Perfil actualizado exitosamente\n";
         cout << "  Nuevo usuario: " << nuevoUsername << endl;
     }
 

@@ -1,3 +1,13 @@
 1|user2|Excelente post!|2025-01-20
 1|user3|Me gusta esto|2025-01-21
-2|user1|Bienvenido!|2025-01-21
+2|user1|Bienvenido!|2025-01-212|user1|esto es una prueba|2025
+1|user1|Comentario #1|2025-01-23
+1|user1|Comentario #2|2025-01-23
+1|user1|Comentario #3|2025-01-23
+1|user1|Comentario #4|2025-01-23
+1|user1|Comentario #5|2025-01-23
+1|user1|Comentario #6|2025-01-23
+1|user1|Comentario #7|2025-01-23
+1|user1|Comentario #8|2025-01-23
+1|user1|Comentario #9|2025-01-23
+1|user1|Comentario #10|2025-01-23

@@ -5,3 +5,6 @@ CamilaDelgado9993|4|post creado hoy por ana|2025
 user1|5|probandi|2025
 
 user1|6|2|2025
+user1|1|Mi primer post|2025-01-20
+user1|2|Probando el sistema|2025-01-21
+user1|3|Funcionando perfecto|2025-01-22

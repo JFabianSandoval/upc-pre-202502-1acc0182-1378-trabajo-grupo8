@@ -1,180 +1,65 @@
-﻿
-#include <iostream>
+﻿#include <iostream>
 #include <cstdlib>
-#include <Windows.h>
 #include "MenuIG.h"
 #include "GeneradorUsuarios.h"
 #include "ControladoraIG.h"
 using namespace std;
-
-void configurarConsola() {
-    SetConsoleOutputCP(65001);
-    SetConsoleCP(65001);
-    setlocale(LC_ALL, "es_ES.UTF-8");
-    SetConsoleTitleA("Red Social - Grupo 8 | UPC 2025-2");
-    HWND consoleWindow = GetConsoleWindow();
-    ShowWindow(consoleWindow, SW_MAXIMIZE);
-}
-
-#define RESET "\033[0m"
-#define BOLD "\033[1m"
-#define BLACK "\033[30m"
-#define RED "\033[31m"
-#define GREEN "\033[32m"
-#define YELLOW "\033[33m"
-#define BLUE "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN "\033[36m"
-#define WHITE "\033[37m"
-
-#define BG_BLACK "\033[40m"
-#define BG_RED "\033[41m"
-#define BG_GREEN "\033[42m"
-#define BG_YELLOW "\033[43m"
-#define BG_BLUE "\033[44m"
-#define BG_MAGENTA "\033[45m"
-#define BG_CYAN "\033[46m"
-#define BG_WHITE "\033[47m"
 
 void limpiarPantalla() {
     system("cls");
 }
 
 void pausa() {
-    cout << "\n" << CYAN << " Presiona ENTER para continuar..." << RESET;
+    cout << "\nPresiona ENTER para continuar...";
     cin.ignore();
     cin.get();
 }
 
-void imprimirLinea(char caracter, int longitud, string color = WHITE) {
-    cout << color;
-    for (int i = 0; i < longitud; i++) {
-        cout << caracter;
-    }
-    cout << RESET << "\n";
-}
-
-void imprimirEncabezado(string titulo, string colorBorde = CYAN, string colorTitulo = YELLOW) {
-    int anchoTotal = 70;
-    int espaciosTitulo = (anchoTotal - titulo.length() - 2) / 2;
-
-    cout << "\n";
-    imprimirLinea('-', anchoTotal, colorBorde);
-
-    cout << colorBorde << "|" << RESET;
-    for (int i = 0; i < espaciosTitulo; i++) cout << " ";
-    cout << BOLD << colorTitulo << titulo << RESET;
-    for (int i = 0; i < anchoTotal - espaciosTitulo - titulo.length() - 2; i++) cout << " ";
-    cout << colorBorde << "|" << RESET << "\n";
-
-    imprimirLinea('-', anchoTotal, colorBorde);
-    cout << "\n";
-}
-
-void imprimirBanner() {
-    cout << BOLD << CYAN;
-    cout << "\n BANNER REMOVIDO PARA ASCII SEGURO \n";
-    cout << RESET;
-}
-
-void imprimirCargando(string texto, int duracion = 500) {
-    cout << YELLOW << "... " << texto;
-    for (int i = 0; i < 3; i++) {
-        Sleep(duracion);
-        cout << ".";
-        cout.flush();
-    }
-    cout << RESET << "\n";
-}
-
 void menuPrincipal() {
-    limpiarPantalla();
-    imprimirBanner();
+    setlocale(LC_ALL, "spanish");
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    cout << "\n -------- MENU PRINCIPAL -------- \n";
-    cout << " 1. Generar 10,000 usuarios (Usuarios.txt)\n";
-    cout << " 2. Iniciar sistema y login\n";
-    cout << " 3. Prueba completa del sistema (DEMO)\n";
-    cout << " 4. Salir\n";
-    cout << "\n Selecciona una opcion: ";
-}
-=======
-    cout << char(201);
-    for (int i = 0; i < 50; i++) cout << char(205);
-    cout << char(187) << "\n";
-=======
-    cout << char(201);
-    for (int i = 0; i < 50; i++) cout << char(205);
-    cout << char(187) << "\n";
+    cout << "+--------------------------------------------------+\n";
+    cout << "|    SIMULADOR DE RED SOCIAL - GRUPO 8            |\n";
+    cout << "+--------------------------------------------------+\n\n";
 
-    cout << char(186) << "    SIMULADOR DE RED SOCIAL - GRUPO 8        " << char(186) << "\n";
-
-    cout << char(200);
-    for (int i = 0; i < 50; i++) cout << char(205);
-    cout << char(188) << "\n\n";
->>>>>>> parent of e835b99 (menu listo)
-
-    cout << char(186) << "    SIMULADOR DE RED SOCIAL - GRUPO 8        " << char(186) << "\n";
-
-    cout << char(200);
-    for (int i = 0; i < 50; i++) cout << char(205);
-    cout << char(188) << "\n\n";
->>>>>>> parent of e835b99 (menu listo)
-
-void mostrarExito(string mensaje) {
-    cout << "\n OK: " << mensaje << "\n";
-}
-
-void mostrarError(string mensaje) {
-    cout << "\n ERROR: " << mensaje << "\n";
-}
-
-void mostrarInfo(string mensaje) {
-    cout << "\n INFO: " << mensaje << "\n";
+    cout << "1. Generar 10,000 usuarios (Usuarios.txt)\n";
+    cout << "2. Iniciar sistema y login\n";
+    cout << "3. Prueba completa del sistema\n";
+    cout << "4. Salir\n";
+    cout << "\nOpcion: ";
 }
 
 void pruebaCompletaDelSistema() {
+    setlocale(LC_ALL, "spanish");
     limpiarPantalla();
-<<<<<<< HEAD
-    cout << "\n ---- PRUEBA COMPLETA DEL SISTEMA ---- \n";
-=======
 
-    cout << char(201);
-    for (int i = 0; i < 60; i++) cout << char(205);
-    cout << char(187) << "\n";
-
-    cout << char(186) << "  PRUEBA COMPLETA - ESTRUCTURAS DE DATOS                 " << char(186) << "\n";
-
-    cout << char(200);
-    for (int i = 0; i < 60; i++) cout << char(205);
-    cout << char(188) << "\n\n";
-<<<<<<< HEAD
->>>>>>> parent of e835b99 (menu listo)
-=======
->>>>>>> parent of e835b99 (menu listo)
+    cout << "+------------------------------------------------------------+\n";
+    cout << "|  PRUEBA COMPLETA - ESTRUCTURAS DE DATOS                   |\n";
+    cout << "+------------------------------------------------------------+\n\n";
 
     ControladoraIG sistema;
 
-    imprimirEncabezado("PASO 1/6: CARGA DE USUARIOS", CYAN, YELLOW);
-    imprimirCargando("Cargando usuarios", 300);
+    // 1. Cargar usuarios en Lista
+    cout << "[1/6] Cargando usuarios desde archivo a Lista...\n";
     sistema.cargarUsuariosDesdeArchivo();
 
-    imprimirEncabezado("PASO 2/6: ASIGNACION DE AMIGOS", CYAN, YELLOW);
-    imprimirCargando("Asignando amigos", 300);
+    // 2. Asignar 1000 amigos aleatorios a user1
+    cout << "\n[2/6] Asignando 1000 amigos aleatorios a user1...\n";
     sistema.asignarAmigosAleatorios();
 
-    imprimirEncabezado("PASO 3/6: AUTENTICACION", CYAN, YELLOW);
-    mostrarInfo("Iniciando sesion como user1...");
+    // 3. Login como user1
+    cout << "\n[3/6] Iniciando sesion como user1...\n";
     sistema.login("user1", "123");
 
-    imprimirEncabezado("PASO 4/6: ORDENAMIENTO", CYAN, YELLOW);
-    imprimirCargando("Ordenando amigos", 300);
+    // 4. Preparar búsqueda binaria (QuickSort + Array)
+    cout << "\n[4/6] Preparando busqueda binaria de amigos...\n";
     sistema.prepararBusquedaBinariaAmigos();
+
+    // Mostrar algunos amigos ordenados
     sistema.mostrarAmigosOrdenados(15);
 
-    imprimirEncabezado("PASO 5/6: BUSQUEDA BINARIA", CYAN, YELLOW);
+    // 5. Pruebas de búsqueda binaria
+    cout << "\n[5/6] Realizando busquedas binarias...\n";
 
     Usuario* user = sistema.getUsuarioActual();
     string primerAmigo;
@@ -182,99 +67,77 @@ void pruebaCompletaDelSistema() {
         if (primerAmigo.empty()) primerAmigo = amigo;
         });
 
-    cout << "\n Buscando amigo existente: " << primerAmigo << "\n";
+    cout << "\nBuscando amigo existente...\n";
     sistema.buscarAmigoBinario(primerAmigo);
 
-    cout << "\n Buscando amigo inexistente: UsuarioInexistente999 \n";
+    cout << "\nBuscando amigo inexistente...\n";
     sistema.buscarAmigoBinario("UsuarioInexistente999");
 
-    imprimirEncabezado("PASO 6/6: HASHTABLE", CYAN, YELLOW);
+    // 6. Prueba de comentarios con HashTable
+    cout << "\n[6/6] Probando HashTable con comentarios...\n";
 
-    mostrarInfo("Creando posts de prueba...");
-    sistema.publicarPost("Mi primer post de prueba", "2025-01-20");
-    sistema.publicarPost("Probando sistema", "2025-01-21");
-    sistema.publicarPost("Todo OK", "2025-01-22");
+    sistema.publicarPost("Mi primer post", "2025-01-20");
+    sistema.publicarPost("Probando el sistema", "2025-01-21");
+    sistema.publicarPost("Funcionando perfecto", "2025-01-22");
 
+    cout << "\nAgregando comentarios (colisiones >= 4)...\n";
     for (int i = 1; i <= 10; i++) {
         string texto = "Comentario #" + to_string(i);
         sistema.comentarPost(1, texto, "2025-01-23");
-        Sleep(100);
     }
 
     sistema.mostrarComentariosDePost(1);
     sistema.mostrarEstadisticasComentarios();
 
-<<<<<<< HEAD
-    cout << "\n PRUEBA COMPLETADA CON EXITO \n";
-=======
     cout << "\n";
-    cout << char(201);
-    for (int i = 0; i < 60; i++) cout << char(205);
-    cout << char(187) << "\n";
-
-    cout << char(186) << "         PRUEBA COMPLETADA EXITOSAMENTE                  " << char(186) << "\n";
-    cout << char(186) << "                                                          " << char(186) << "\n";
-    cout << char(186) << "  [OK] Lista: 10,000 usuarios cargados                   " << char(186) << "\n";
-    cout << char(186) << "  [OK] Asignacion: 1000 amigos aleatorios                " << char(186) << "\n";
-    cout << char(186) << "  [OK] QuickSort: Amigos ordenados                       " << char(186) << "\n";
-    cout << char(186) << "  [OK] Busqueda Binaria: Funcionando                     " << char(186) << "\n";
-    cout << char(186) << "  [OK] HashTable: Colisiones detectadas                  " << char(186) << "\n";
-
-    cout << char(200);
-    for (int i = 0; i < 60; i++) cout << char(205);
-    cout << char(188) << "\n";
-<<<<<<< HEAD
->>>>>>> parent of e835b99 (menu listo)
-=======
->>>>>>> parent of e835b99 (menu listo)
+    cout << "+------------------------------------------------------------+\n";
+    cout << "|         PRUEBA COMPLETADA EXITOSAMENTE                     |\n";
+    cout << "|                                                            |\n";
+    cout << "|  [OK] Lista: 10,000 usuarios cargados                     |\n";
+    cout << "|  [OK] Asignacion: 1000 amigos aleatorios                  |\n";
+    cout << "|  [OK] QuickSort: Amigos ordenados                         |\n";
+    cout << "|  [OK] Busqueda Binaria: Funcionando                       |\n";
+    cout << "|  [OK] HashTable: Colisiones detectadas                    |\n";
+    cout << "+------------------------------------------------------------+\n";
 
     pausa();
 }
 
-void animacionCarga() {
-    limpiarPantalla();
-    imprimirBanner();
-
-    imprimirCargando("Inicializando sistema", 400);
-    imprimirCargando("Cargando modulos", 400);
-    imprimirCargando("Preparando entorno", 400);
-
-    mostrarExito("Sistema listo");
-    Sleep(800);
-}
-
 int main() {
-    configurarConsola();
-
     int opcion;
+    setlocale(LC_ALL, "spanish");
 
     do {
+        limpiarPantalla();
         menuPrincipal();
         cin >> opcion;
 
-        if (opcion == 1) {
+        switch (opcion) {
+        case 1:
             limpiarPantalla();
-            imprimirEncabezado("GENERADOR DE USUARIOS", MAGENTA, YELLOW);
-            imprimirCargando("Inicializando generador", 300);
+            cout << "\nGenerando 10,000 usuarios...\n";
             GeneradorUsuarios::generar10000Usuarios();
-            mostrarExito("Usuarios generados");
             pausa();
-        }
-        else if (opcion == 2) {
-            animacionCarga();
+            break;
+
+        case 2: {
             limpiarPantalla();
             MenuIG menu;
             menu.inicio();
+            break;
         }
-        else if (opcion == 3) {
+
+        case 3:
             pruebaCompletaDelSistema();
-        }
-        else if (opcion == 4) {
-            mostrarInfo("Saliendo del sistema...");
-            Sleep(1000);
-        }
-        else {
-            mostrarError("Opcion invalida.");
+            break;
+
+        case 4:
+            limpiarPantalla();
+            cout << "\n\n         Hasta luego!\n\n";
+            break;
+
+        default:
+            cout << "\n[ERROR] Opcion invalida\n";
             pausa();
         }
 

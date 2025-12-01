@@ -1,6 +1,4 @@
 user1|123
-<<<<<<< HEAD
-<<<<<<< HEAD
 CamilaMontoya2|pass3285
 JuanGomez3|pass2358
 RosaSolis4|pass5672
@@ -20002,7 +20000,4 @@ SalvadorEscobar9997|pass1408
 FernandaRivera9998|pass3109
 AdrianaVelazquez9999|pass4334
 AnaNunez10000|pass1032
-<<<<<<< HEAD
->>>>>>> parent of e835b99 (menu listo)
-=======
->>>>>>> parent of e835b99 (menu listo)
+
